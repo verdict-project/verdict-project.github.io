@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Comfortaa');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /**
  * Site header
@@ -30,10 +31,12 @@
     }
 
     .verdict-description {
-        font-family: 'Comfortaa', cursive;
+        // font-family: 'Comfortaa', cursive;
+        font-family: 'Lato', sans-serif;
         font-size: 22pt;
-        margin-top: auto;
-        margin-bottom: auto;
+        color: #2c2d3f;
+        // margin-top: auto;
+        // margin-bottom: auto;
 
         @include media-query($on-regular) {
             font-size: 20pt;

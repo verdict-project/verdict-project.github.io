@@ -1,23 +1,21 @@
+- title: "How Verdict Works?"
+  url: "/how/"
+
 - title: "Download"
   url: "/download/"
 
 - title: "Documentation"
-  url: "/documentation/overview/"
   subcategories:
-    - subtitle: "Overview"
-      url: "/documentation/overview/"
+    - subtitle: "Speedup Examples"
+      url: "/documentation/example/"
     - subtitle: "Quick Start"
       url: "/documentation/quick_start/"
-    - subtitle: "Supported Queries"
-      url: "/documentation/supported_queries/"
     - subtitle: "Connecting to Databases"
       url: "/documentation/connecting/"
     - subtitle: "Configurations"
       url: "/documentation/configurations/"
-
-- title: "Example"
-  url: "/example/"
+    - subtitle: "Supported Queries"
+      url: "/documentation/supported_queries"
 
 - title: "Community"
   url: "/community/"
-
