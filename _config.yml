@@ -17,3 +17,6 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+# Project settings
+version: 0.3.0

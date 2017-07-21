@@ -1,0 +1,37 @@
+
+<div class="verdict-news home-tab-item">
+<h3>News</h3>
+<p>Verdict now supports <span style="font-weight: bold">Apache Spark SQL</span>.</p>
+</div>
+
+<hr>
+
+<div class="home-tab-item">
+  <div class="verdict-download">
+  {% for item in site.data.nav %}
+  {% if item.title == "Download" %}
+  <a href="{{ item.url }}"><button type="button" class="btn btn-warning btn-lg">Download Verdict</button></a>
+  {% endif %}
+  {% endfor %}
+  </div>
+
+  <p>The latest version is <span style="font-weight: bold">{{ site.version }}</span>.</p>
+
+  <p>Verdict is an open-source project hosted on <a href="https://github.com/mozafari/verdict">Github</a>.
+     It is under the Apache license, Version 2.0.</p>
+</div>
+
+<hr>
+
+<div class="home-tab-item">
+  <h3>Supported Engines</h3>
+
+  <p>Verdict currently can work on top of the following engines. We are adding more drivers to support other engines as well.</p>
+
+  <img src="{{ site.baseurl }}/image/apache-impala.png" style="max-width: 150px; margin-bottom: 10px" />
+
+  <img src="{{ site.baseurl }}/image/apache-spark.jpeg" style="max-width: 150px; margin-bottom: 20px" />
+
+  <img src="{{ site.baseurl }}/image/apache-hive.png" style="max-width: 100px; margin-bottom: 20px" />
+
+</div>

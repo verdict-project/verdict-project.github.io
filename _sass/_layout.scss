@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:700,900i');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Comfortaa');
 
 /**
  * Site header
@@ -12,39 +12,101 @@
     position: relative;
 }
 
+.vbottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+}
 
-.site-title {
-    font-size: 60px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 900;
-    font-style: italic;
-    line-height: 80px;
-    letter-spacing: -1px;
+.site-title-bar {
+    padding-top: 10px;
+    padding-bottom: 0px;
     margin-bottom: 0;
     // float: left;
 
-    &,
-    &:visited {
-        color: $grey-color-dark;
+    .verdict-logo {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .verdict-description {
+        font-family: 'Comfortaa', cursive;
+        font-size: 22pt;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        @include media-query($on-regular) {
+            font-size: 20pt;
+        }
+
+        @include media-query($on-laptop) {
+            font-size: 16pt;
+        }
+    }
+
+    @include media-query($on-palm) {
+        display: none;
     }
 }
 
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
+// .dropdown:hover > .dropdown-menu {
+//     display: block;
+// }
 
 .navbar-purple {
     background-color: $nav-bar-background-color;
+    margin-top: 20px;
     padding-right: 30px;
-    border-radius: 10pt;
+    border-radius: 5pt;
     padding-top: 0;
     padding-bottom: 0;
 
+    @include media-query($on-palm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar-brand {
+        padding-top: 5px;
+        padding-left: 20px;
+        padding-bottom: 2px;
+        display: none;
+        color: white;
+        font-family: 'Comfortaa', cursive;
+        font-size: 20pt;
+
+        @include media-query($on-palm) {
+            display: inline;
+        }
+    }
+
+    .navbar-nav {
+        @include media-query($on-palm) {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+
     .nav-item {
-        padding-top: 10px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        // collpased menu does not need any paddings
+        @include media-query($on-palm) {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .nav-link {
+            padding-left: 30px;
+            padding-right: 30px;
+
+            // when the screen width is relatively small
+            @include media-query($on-laptop) {
+                padding-left: 20px;
+                padding-right: 10px;
+            }
+        }
 
         a, a:visited {
             color: $nav-text-color;
@@ -61,6 +123,14 @@
             box-shadow: 2px 2px 5px #AAA;
             margin-top: 0;
 
+            @include media-query($on-palm) {
+                border-radius: 0pt;
+                border-width: 0;
+                border-left-width: 1px;
+                border-right-width: 1px;
+                box-shadow: 0 0 0;
+            }
+
             .dropdown-item {
                 color: $text-color;
                 font-family: 'Lato', sans-serif;
@@ -75,9 +145,48 @@
     }
 }
 
+.home-main {
+  padding-top: $spacing-unit;
+  padding-right: 30px;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+  border-color: $nav-bar-background-color;
+
+  @include media-query($on-laptop) {
+      border-width: 0;
+  }
+}
+
+.home-tab {
+  padding-top: $spacing-unit;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-style: solid;
+  border-width: 0;
+
+  @include media-query($on-laptop) {
+      display: none;
+  }
+
+  .verdict-download {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+}
+
+.home-tab-item {
+  padding-bottom: 20px;
+}
+
+.index-image {
+  width: 300px;
+  height: 170px;
+  margin-bottom: 10px;
+}
+
 .site-nav-bar {
     background-color: $nav-bar-background-color;
-    min-height: 60px;
+    min-height: 50px;
     padding-right: 50px;
     font-size: 18px;
     //font-family: 'Raleway', sans-serif;
@@ -156,13 +265,17 @@
     }
 }
 
-
 /**
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+}
+
+.footer-container {
+  border-style: solid;
+  border-color: $nav-bar-background-color;
+  border-width: 4px 0 0 0;
 }
 
 .footer-heading {
@@ -231,7 +344,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: 0 $spacing-unit/2;
 }
 
 .page-heading {
