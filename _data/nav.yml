@@ -16,6 +16,8 @@
       url: "/documentation/configurations/"
     - subtitle: "Supported Queries"
       url: "/documentation/supported_queries"
+    - subtitle: "Research"
+      url: "/documentation/research"
 
 - title: "Community"
   url: "/community/"

@@ -1,0 +1,32 @@
+#markdown-toc::before {
+  content: "Contents";
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#markdown-toc {
+  list-style-type: none;
+  background-color: #f6f8fa;
+  max-width: 500px;
+  margin-left: 0;
+  border: 1px solid #aaa;
+  padding: 10px 0 10px 20px;
+
+  a {
+    color: $text-color;
+  }
+
+  li {
+    margin-top: 10px;
+    ul {
+      margin-left: 20px;
+      list-style-type: decimal;
+      li {
+        margin-top: 0px;
+        ul {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}

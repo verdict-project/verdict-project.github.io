@@ -1,36 +1,27 @@
 ---
-layout: default
+layout: post
 ---
 
-# Pre-compiled Jar files
+{:.first}
+# Download
 
-You can download pre-compiled JAR files. Below JAR files were compiled with Oracle JDK 7.
-
-## For Spark
-
-## Verdict JDBC driver
-
-## Command line interface
+* TOC
+{:toc}
 
 
-# Source code
+## Pre-compiled JAR
 
-Verdict's source code is compiled using Apache Maven. Verdict is supported and tested for Oracle JDK 7. Verdict's source code is compatible with JDK 8, but is not compatible with JDK 6.
+Below JAR files were compiled using Oracle JDK 7. If the pre-compiled JAR files are not compatible with your environment, you can [build Verdict from the source](#build-from-source).
 
-## Latest release
+1. **JDBC + Command line interface (for Impala, Hive, Redshift)**: [{{ site.jdbc_jar_name }}]({{ site.jdbc_jar_link }})
 
-Download zipped source code by clicking this link or by running the following code in terminal.
-
-```bash
-$ wget
-```
-
-Unzip the downloaded file and go into the directory as follows:
-
-```bash
-$ unzip
-$ cd
-```
+1. **Verdict core + PyVerdict (for Spark)**: [{{ site.spark_jar_name }}]({{ site.spark_jar_link }})
 
 
-## Github snapshot
+## Build from source
+
+Verdict's source code can be compiled easily using [Apache Maven](https://maven.apache.org/). The necessary JAR files for all platforms can be built from this source code. Verdict is supported and tested for Oracle JDK 7.
+
+1. **Latest release**:
+
+1. **Github snapshot**: [Github repository]({{ site.github_link }})
