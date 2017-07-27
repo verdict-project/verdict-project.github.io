@@ -8,86 +8,164 @@ layout: post
 * TOC
 {:toc}
 
-In this guide, we will download Verdict, and issue SQL queries through Verdict. The workflow is identical for the database systems that support JDBC connections. Verdict takes a slightly different approach for Spark SQL due to its architectural uniqueness.
+Verdict can run on top of [Apache Spark](https://spark.apache.org/), [Apache (incubating) Impala](https://impala.incubator.apache.org/), and [Apache Hive](https://hive.apache.org/). We are adding drivers for other database systems.
 
-## Impala, Hive, Redshift
+Using Verdict is easy. Following this guide, you can finish setup in five minutes if you have any of those supported systems ready.
 
-### Step 1. Downloading a JDBC driver
+## Downloading Verdict
 
-Download [this JAR file]({{ site.core_jar_link }}) to use Verdict on top of the database systems that support JDBC connections. The downloaded JAR file should be placed in the client machine (just like other JDBC drivers).
+Downloading and building Verdict requires only a couple steps. Building Verdict does not require any `sudo` privilege.
 
-1. **The class name for Verdict's JDBC driver**: `edu.umich.verdict.jdbc.Driver`.
+1. **Download** and unzip [the latest release](https://github.com/mozafari/verdict/releases/download/v0.3.0/verdict-0.3.0.zip).
+1. **Type** `mvn package` in the unzipped directory. This command will download all the dependencies and compile Verdict's code. The command will create three `jar` files in the `target` directory.
 
-1. **JDBC connection string**
-  * **Impala**: `jdbc:verdict:impala://hostname:port/schema?key1=param1&key2=param2&...`.
-  * **Hive**: `jdbc:verdict:hive://hostname:port/schema?key1=param1&key2=param2&...`.
-  * **Redshift**: `jdbc:verdict:redshift://hostname:port/schema?key1=param1&key2=param2&...`.
+Then, building Verdict is done!
 
-See that the only difference among different databases is the database name that comes after `verdict:`. One can connect to Verdict from a standard Java application using the information above.
+### More details
 
-Verdict does not support other databases at the moment due to the variations in SQL expressions (supported by different databases). If you are using a database system other than the ones listed above and want to use Verdict on top of it, please contact us, so we can add a driver for the database system.
+Verdict is tested on Oracle JDK 1.7 or above, but it should work with open JDK, too. `mvn` is the command for the [Apache Maven](https://maven.apache.org/) package manager. If you do not have the Maven, you will have to install it. The official page for the Maven installation is [this](https://maven.apache.org/install.html).
 
-For convenience, Verdict ships with its own command line interface. See below for it.
+Verdict is currently tested with the systems included in a Cloudera distribution ([CDH 5.11](https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_rn_new_in_cdh_511.html)). However, Verdict should work with other versions as well. Please let us know if Verdict is incompatible with your environment.
 
 
-### Step 2. (Optional) Starting a command line interface
+## Using Verdict
 
-Verdict ships with a command line interface, `veeline` (which is a modified version of `sqlLine`). Start `veeline` as follows:
+The steps for starting Verdict is slightly different depending on the database system it works with. Once connected, however, Verdict accepts the same SQL statements.
+
+
+### On Apache Spark
+
+Verdict works with Spark by internally creating Spark's HiveContext. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11). We will support Spark 2.0 shortly.
+
+We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in an Spark application written either in Scala or Python is the same.
+
+Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks.
+
+
+#### Verdict-on-Spark
+
+You can start `spark-shell` with Verdict as follows.
 
 ```bash
-$ bin/veeline -h "impala://hostname:port/schema?key1=param1&key2=param2&..." -u username -p password
+$ spark-shell --jars target/verdict-core-0.3.0-jar-with-dependencies.jar
 ```
 
-The connection string must be double-quoted to include multiple parameters, since `&` has a special meaning in the bash shell. After the connection is successfully made, regular SQL queries can be issued in `veeline`. The username and password can be passed within the connection string instead of specifiying them as separate parameters.
-
-Note that `veeline` makes JDBC connections using the target JDBC drivers stored in `lib` directory. The JDBC drivers that ships with Verdict is the drivers for the Cloudera distribution. If those default JDBC drivers are not compatible with your environment, simply replace those existing JAR files in the `lib` directory with the the JAR files for your environment.
-
-
-### Step 3. Running queries
-
-Verdict processes standard SQL queries.
-
-```sql
-veeline:impala> show databases;
-
-veeline:impala> use mydb;
-
-veeline:impala> create sample of mytable;
-
--- Verdict automatically speeds up this query using available samples.
-veeline:impala> select count(*) from mytable;
-```
-
-For more details on the queries Verdict supports, see this page.
-
-
-## Spark
-
-### Step 1. Downloading a JAR
-
-Download [this JAR file]({{ site.jdbc_jar_link }}) to use Verdict on top of Spark's HiveContext.
-
-### Step 2. Submitting an application
-
-Include Verdict's JAR as submitting a Spark application. Below is an example with the Spark shell.
+After spark-shell starts, import and use Verdict as follows.
 
 ```scala
-$ spark-shell --jars {{ site.verdict_core_jar }}
+import edu.umich.verdict.VerdictSparkHiveContext
 
-// sc is a SparkContext instance.
-// Verdict internally creates an instance of HiveContext.
-spark> val vc = new edu.umich.verdict.VerdictSparkHiveContext(sc)
+scala> val vc = new VerdictSparkHiveContext(sc)   // sc: SparkContext instance
 
-spark> vc.sql("show databases").show(false)
+scala> vc.sql("show databases").show(false)       // Simply displays the databases (or often called schemas)
 
-spark> vc.sql("use mydb").show(false)
+// Creates samples for the table. This step needs to be done only once for the table.
+// The created tables are automatically persisted through HiveContext and can be used in the other
+// pyspark applications.
+scala> vc.sql("create sample of database_name.table_name").show(false)
 
-// created samples are materialized using Spark's HiveContext.
-// samples need to be created only once.
-spark> vc.sql("create sample of mytable").show(false)
-
-// Verdict automatically speeds up this query using available samples.
-spark> vc.sql("select count(*) from mytable").show(false)
+// Now Verdict automatically uses available samples for speeding up this query.
+scala> vc.sql("select count(*) from database_name.table_name").show(false)
 ```
 
-See [this page]({{ site.baseurl }}/documentation/connecting) for more details on using Verdict on top of Spark and **PySpark**. The integration with Jupyter is also described in the page.
+The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class; thus, any methods that work on Spark's DataFrame work on Verdict's answer seamlessly.
+
+
+#### Verdict-on-PySpark
+
+You can start `pyspark` shell with Verdict as follows.
+
+```bash
+$ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
+
+$ pyspark --driver-class-path target/verdict-core-0.3.0-jar-with-dependencies.jar
+```
+
+**Limitation**: Note that, in order for the `--driver-class-path` option to work, the jar file (i.e., `target/verdict-core-0.3.0-jar-with-dependencies.jar`) must be present in the Spark's driver node. Verdict will support `--jars` option shortly.
+
+After pyspark shell starts, import and use Verdict as follows.
+
+```python
+>>> from pyverdict import VerdictHiveContext
+
+>>> vc = VerdictHiveContext(sc)        # sc: SparkContext instance
+
+>>> vc.sql("show databases").show()    # Simply displays the databases (or often called schemas)
+
+# Creates samples for the table. This step needs to be done only once for the table.
+# The created tables are automatically persisted through HiveContext and can be used in the other
+# pyspark applications.
+>>> vc.sql("create sample of database_name.table_name").show()
+
+# Now Verdict automatically uses available samples for speeding up this query.
+>>> vc.sql("select count(*) from database_name.table_name").show()
+```
+
+The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; thus, any methods that work on pyspark's DataFrame work on Verdict's answer seamlessly.
+
+
+### On Apache Impala, Apache Hive, Amazon Redshift
+
+We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. Please see [our website](http://verdictdb.org) for the JDBC instruction.
+
+#### Verdict-on-Impala
+
+Type the following command in terminal to launch `veeline` that connects to Impala.
+
+```bash
+$ veeline/bin/veeline -h "impala://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
+```
+
+Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connetion string as parameters, too.
+
+Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
+
+After `veeline` launches, you can issue regular SQL queries as follows.
+
+```
+verdict:impala> show databases;
+
+verdict:impala> create sample of database_name.table_name;
+
+verdict:impala> select count(*) from database_name.table_name;
+```
+
+#### Verdict-on-Hive
+
+Type the following command in terminal to launch `veeline` that connects to Hive.
+
+```bash
+$ veeline/bin/veeline -h "hive2://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
+```
+
+Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connetion string as parameters, too.
+
+Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
+
+After `veeline` launches, you can issue regular SQL queries as follows.
+
+```
+verdict:Apache Hive> show databases;
+
+verdict:Apache Hive> create sample of database_name.table_name;
+
+verdict:Apache Hive> select count(*) from database_name.table_name;
+```
+
+#### Verdict-on-Redshift
+
+This is under development at the moment.
+
+
+#### Notes on using `veeline`
+
+`veeline` makes a JDBC connection to the database systems that Verdict work on top of (e.g., Impala or Hive). For this, it uses the JDBC drivers stored in the `lib` folder. Our code ships by default with the Cloudera's Impala and Hive JDBC drivers (jar files). However, if these drivers are not compatible with your environment, you can put the compatible JDBC drivers in the `lib` folder after deleting existing ones.
+
+
+## What's Next
+
+See what types of queries are supported by Verdict in [**this page**](http://verdictdb.org), and enjoy the speedup provided Verdict for those queries.
+
+Learn in [**this page**]() how to quickly visualize your query answers using Verdict in [Apache Zeppelin](https://zeppelin.apache.org/) or [Jupyter](http://jupyter.org/).
+
+If you have use cases that are not supported by Verdict, please contact us at `verdict-user@umich.edu`, or create an issue in our Github repository. We will answer your questions or requests shortly (at most in a few days).
