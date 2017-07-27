@@ -373,19 +373,30 @@
  * Tables
  */
 
-thead {
-  border-style: solid;
-  border-width: 0 0 2px 0;
-}
+table {
+  margin-bottom: 20px;
 
-th {
-  padding-bottom: 5px;
-}
+  thead {
+    border-style: solid;
+    border-width: 1px 0 2px 0;
+  }
 
-td {
-  padding-top: 10px;
-  padding-bottom: 0px;
-  padding-right: 30px;
+  tbody {
+    tr {
+      border-top-style: solid;
+      border-top-width: 1px;
+    }
+  }
+
+  th {
+    padding-bottom: 5px;
+  }
+
+  td {
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 30px;
+  }
 }
 
 /**
@@ -408,8 +419,12 @@ td {
 .post-content {
     margin-bottom: $spacing-unit;
 
+    h1 {
+      font-size: 32px;
+    }
+
     h2 {
-        font-size: 32px;
+        font-size: 28px;
 
         @include media-query($on-laptop) {
             font-size: 28px;
@@ -417,18 +432,31 @@ td {
     }
 
     h3 {
-        font-size: 26px;
+        font-size: 21px;
 
         @include media-query($on-laptop) {
-            font-size: 22px;
+            font-size: 21px;
         }
     }
 
     h4 {
-        font-size: 20px;
+        font-size: 18px;
 
         @include media-query($on-laptop) {
             font-size: 18px;
         }
     }
+}
+
+.supported-query {
+  font-size: 19px;
+  font-family: 'Inconsolata', monospace;
+  border: 0;
+  font-weight: 700;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  border: 1px solid $grey-color-light;
+  background-color: #f7f7f9;
+  padding-left: 10px;
 }

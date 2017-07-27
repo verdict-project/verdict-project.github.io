@@ -1,7 +1,7 @@
 
 <div class="verdict-news home-tab-item">
 <h3>News</h3>
-<p>Verdict now supports <span style="font-weight: bold">Apache Spark SQL</span>.</p>
+<p>Verdict now supports <span style="font-weight: bold">Apache Spark SQL</span> (July 26 2017).</p>
 </div>
 
 <hr>
@@ -10,7 +10,7 @@
   <div class="verdict-download">
   {% for item in site.data.nav %}
   {% if item.title == "Download" %}
-  <a href="{{ item.url }}"><button type="button" class="btn btn-warning btn-lg">Download Verdict</button></a>
+  <a href="{{ site.baseurl }}{{ item.url }}"><button type="button" class="btn btn-warning btn-lg">Download Verdict</button></a>
   {% endif %}
   {% endfor %}
   </div>

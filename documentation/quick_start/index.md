@@ -3,23 +3,23 @@ layout: post
 ---
 
 {:.first}
-# Quick Start
+# Quick Start Guide
 
 * TOC
 {:toc}
 
-Verdict can run on top of [Apache Spark](https://spark.apache.org/), [Apache (incubating) Impala](https://impala.incubator.apache.org/), and [Apache Hive](https://hive.apache.org/). We are adding drivers for other database systems.
+Verdict can run on top of [Apache Hive](https://hive.apache.org/), [Apache Impala](https://impala.incubator.apache.org/), and [Apache Spark](https://spark.apache.org/). We are adding drivers for other database systems, such as Amazon Redshift, Google BigQuery, Google Dataproc, etc.
 
 Using Verdict is easy. Following this guide, you can finish setup in five minutes if you have any of those supported systems ready.
 
-## Downloading Verdict
+## Downloading and Building Verdict
 
-Downloading and building Verdict requires only a couple steps. Building Verdict does not require any `sudo` privilege.
+Downloading and building Verdict requires only a couple steps. Building Verdict does not require any `sudo` access.
 
-1. **Download** and unzip [the latest release](https://github.com/mozafari/verdict/releases/download/v0.3.0/verdict-0.3.0.zip).
-1. **Type** `mvn package` in the unzipped directory. This command will download all the dependencies and compile Verdict's code. The command will create three `jar` files in the `target` directory.
+1. **Download** and unzip [the latest release (version 0.3.0)](https://github.com/mozafari/verdict/releases/download/v0.3.0/verdict-0.3.0.zip).
+1. **Type** `mvn package` in the unzipped directory. The command will download all the dependencies and compile Verdict's code. The command will create three `jar` files in the `target` directory.
 
-Then, building Verdict is done!
+This is all!
 
 ### More details
 
@@ -30,16 +30,16 @@ Verdict is currently tested with the systems included in a Cloudera distribution
 
 ## Using Verdict
 
-The steps for starting Verdict is slightly different depending on the database system it works with. Once connected, however, Verdict accepts the same SQL statements.
+Verdict takes a slightly different approach depending on the database system it works with. Once connected, however, you can issue the same SQL queries.
 
 
 ### On Apache Spark
 
-Verdict works with Spark by internally creating Spark's HiveContext. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11). We will support Spark 2.0 shortly.
+Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11). We will support Spark 2.0 shortly.
 
 We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in an Spark application written either in Scala or Python is the same.
 
-Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks.
+Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. See this page for more detail about how to set up Verdict with Zeppelin or Jupyter.
 
 
 #### Verdict-on-Spark
@@ -81,7 +81,7 @@ $ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
 $ pyspark --driver-class-path target/verdict-core-0.3.0-jar-with-dependencies.jar
 ```
 
-**Limitation**: Note that, in order for the `--driver-class-path` option to work, the jar file (i.e., `target/verdict-core-0.3.0-jar-with-dependencies.jar`) must be present in the Spark's driver node. Verdict will support `--jars` option shortly.
+**Limitation**: Note that, in order for the `--driver-class-path` option to work, the jar file (i.e., `target/verdict-core-0.3.0-jar-with-dependencies.jar`) must be placed in the Spark's driver node. Verdict will support `--jars` option shortly.
 
 After pyspark shell starts, import and use Verdict as follows.
 
@@ -106,7 +106,7 @@ The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; t
 
 ### On Apache Impala, Apache Hive, Amazon Redshift
 
-We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. Please see [our website](http://verdictdb.org) for the JDBC instruction.
+We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. See see [this page](http://verdictdb.org) for the instructions for a JDBC connection.
 
 #### Verdict-on-Impala
 
@@ -116,7 +116,7 @@ Type the following command in terminal to launch `veeline` that connects to Impa
 $ veeline/bin/veeline -h "impala://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
 ```
 
-Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connetion string as parameters, too.
+Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
 
 Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
 
@@ -138,7 +138,7 @@ Type the following command in terminal to launch `veeline` that connects to Hive
 $ veeline/bin/veeline -h "hive2://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
 ```
 
-Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connetion string as parameters, too.
+Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
 
 Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
 

@@ -7,7 +7,7 @@ layout: post
 
 Our primary goal is to build a usable system. We are committed to stay as an open-source project, which is possible since we are a government-funded research group at university.
 
-Verdict has received much attention from the industry as well as from the academia. Our plan is to change this project to an Apache project within a few months.
+Verdict has received much attention from the industry as well as from the academia. Our plan is to turning this project into an Apache project within a few months.
 
 
 ## Mailing lists

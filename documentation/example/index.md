@@ -22,6 +22,8 @@ We generated 124 GB dataset by scaling (160 times) the publicly-available sales 
 
 ## Comparisons
 
+The results on the left side are from Apache Impala and the results on the right side are from Verdict running on top of Impala. We used [Hue](http://gethue.com/) for front-end visualizations. You can find in [this page]({{ site.baseurl }}/documentation/using) how to configure Hue to connect to Verdict without changing any code.
+
 ### Q1. Simple Aggregation
 
 The first query asks the total number of orders in the dataset.
