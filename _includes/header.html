@@ -37,13 +37,13 @@
             {% if item.subcategories %}
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{{ site.url }}{{ item.url }}" id="navbar{{ item.title }}MenuLink"
+                <a class="nav-link dropdown-toggle" href="{{ site.baseurl }}{{ item.url }}" id="navbar{{ item.title }}MenuLink"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.title }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbar{{ item.title }}MenuLink">
                   {% for subcategory in item.subcategories %}
-                    <a class="dropdown-item" href="{{ site.url }}{{ subcategory.url }}">{{ subcategory.subtitle }}</a>
+                    <a class="dropdown-item" href="{{ site.baseurl }}{{ subcategory.url }}">{{ subcategory.subtitle }}</a>
                   {% endfor %}
                 </div>
               </li>
@@ -51,7 +51,7 @@
             {% else %}
 
               <li class="nav-item">
-                <a class="nav-link" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+                <a class="nav-link" href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
               </li>
 
             {% endif %}
