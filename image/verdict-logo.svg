@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="76mm"
+   viewBox="0 0 708.66142 269.29127"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="verdict-logo.svg"
+   inkscape:export-filename="/Users/pyongjoo/Downloads/verdict-logo/verdict-logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.66449955"
+     inkscape:cx="315.75044"
+     inkscape:cy="-31.273003"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1577"
+     inkscape:window-height="1013"
+     inkscape:window-x="55"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:showpageshadow="false"
+     showborder="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3341" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(0,-783.07094)" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(0,-783.07094)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:58.52108002px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2b250;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="512.61493"
+       y="834.88586"
+       id="text3345"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84232374,1.187192)"><tspan
+         sodipodi:role="line"
+         id="tspan3347"
+         x="512.61493"
+         y="834.88586"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:314.55078125px;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;fill:#f2b250;fill-opacity:1">&gt;&gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:57.81964493px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="6.490581"
+       y="1047.2416"
+       id="text3349"
+       sodipodi:linespacing="125%"
+       transform="scale(0.99987189,1.0001281)"><tspan
+         sodipodi:role="line"
+         x="6.490581"
+         y="1047.2416"
+         id="tspan3351"><tspan
+           x="6.490581"
+           y="1047.2416"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:expanded;font-size:216.82366943px;line-height:125%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa Bold Expanded';fill:#585a70;fill-opacity:1"
+           id="tspan3353">Verdict</tspan></tspan></text>
+  </g>
+</svg>
