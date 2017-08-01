@@ -41,7 +41,7 @@ Displays the samples created for the tables in the `database-name`. If `database
 {:.supported-query}
 create [XX%] sample of [database-name.]table-name;
 
-Creates a set of samples for the specified table. This is the recommended way of creating sample tables. Verdict analyzes the statistics of the table and automatically creates desired samples. If the sampling probability is omitted, 1% samples are created by default.
+Creates a set of samples for the specified table. **This is the recommended way of creating sample tables.** Verdict analyzes the statistics of the table and automatically creates desired samples. If the sampling probability is omitted, 1% samples are created by default.
 
 Currently, Verdict creates three types of samples using the following rule:
 1. A uniform random sample
