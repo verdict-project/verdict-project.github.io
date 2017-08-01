@@ -30,8 +30,5 @@ version: 0.3.0
 github_link: https://github.com/mozafari/verdict
 verdict_core_jar: verdict-core-0.3.0-with-dependencies.jar
 verdict_jdbc_jar: verdict-jdbc-0.3.0-jar-with-dependencies.jar
-source_code_link: https://github.com/mozafari/verdict/releases/download/v0.2.2-beta/verdict-v0.2.2-beta.zip
-spark_jar_name: verdict-spark-0.3.0.zip
-spark_jar_link: https://github.com/mozafari/verdict/releases/download/v0.2.2-beta/verdict-v0.2.2-beta.zip
-jdbc_jar_name: verdict-jdbc-0.3.0.zip
-jdbc_jar_link: https://github.com/mozafari/verdict/releases/download/v0.2.2-beta/verdict-v0.2.2-beta.zip
+url_to_latest_source_code_zip: https://github.com/mozafari/verdict/releases/download/v0.3.0/verdict-0.3.0.zip
+source_code_zip_filename: verdict-0.3.0.zip
