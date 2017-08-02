@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="182mm"
+   height="69mm"
+   viewBox="0 0 644.88181 244.4881"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="verdict-logo-white.svg"
+   enable-background="new"
+   inkscape:export-filename="/Users/pyongjoo/workspace/verdict-site/image/verdict-logo-white.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4171">
+      <feBlend
+         inkscape:collect="always"
+         mode="lighten"
+         in2="BackgroundImage"
+         id="feBlend4173" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.82"
+     inkscape:cx="301.21951"
+     inkscape:cy="177.14286"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     inkscape:window-width="1668"
+     inkscape:window-height="1028"
+     inkscape:window-x="123"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="bg"
+     style="display:none">
+    <rect
+       style="fill:#000000;fill-opacity:1"
+       id="rect4186"
+       width="641.46344"
+       height="239.02438"
+       x="1.2195122"
+       y="1.8052316" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Verdict-arrows"
+     transform="translate(0,-109.84252)"
+     style="filter:url(#filter4171)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3351"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(1.2936489,0,0,1.3666767,-82.181352,-118.48788)"><flowRegion
+         id="flowRegion3353"><rect
+           id="rect3355"
+           width="253.65854"
+           height="237.80487"
+           x="379.26828"
+           y="84.818512" /></flowRegion><flowPara
+         id="flowPara3357"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:180px;font-family:Raleway;-inkscape-font-specification:'Raleway Bold';fill:#ffffff;fill-opacity:1">&gt;&gt;</flowPara></flowRoot>  </g>
+  <g
+     inkscape:label="Verdict-railway"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-807.87411)"
+     style="display:inline">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3336"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#585a70;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(-36,822.37296)"><flowRegion
+         id="flowRegion3338"><rect
+           id="rect3340"
+           width="652.43903"
+           height="259.7561"
+           x="37.804878"
+           y="48.233158"
+           style="fill:#585a70;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara3342"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:180px;font-family:Raleway;-inkscape-font-specification:'Raleway Heavy';fill:#ffffff;fill-opacity:1">Verdict</flowPara></flowRoot>  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:none"
+     transform="translate(0,-109.84252)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3345"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+         id="flowRegion3347"><rect
+           id="rect3349"
+           width="621.95123"
+           height="224.39024"
+           x="54.878048"
+           y="81.159988" /></flowRegion><flowPara
+         id="flowPara3351"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:180px;font-family:Titillium;-inkscape-font-specification:'Titillium Heavy'">Verdict</flowPara></flowRoot>  </g>
+</svg>
