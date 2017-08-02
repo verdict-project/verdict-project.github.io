@@ -390,12 +390,14 @@ table {
   }
 
   th {
+    padding-top: 5px;
     padding-bottom: 5px;
+    padding-right: 30px;
   }
 
   td {
-    padding-top: 10px;
-    padding-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-right: 30px;
   }
 }
@@ -434,6 +436,7 @@ table {
 
     h3 {
         font-size: 21px;
+        font-weight: 700;
 
         @include media-query($on-laptop) {
             font-size: 21px;
@@ -450,14 +453,22 @@ table {
 }
 
 .supported-query {
-  font-size: 19px;
-  font-family: 'Inconsolata', monospace;
-  border: 0;
-  font-weight: 700;
-  color: black;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  border: 1px solid $grey-color-light;
-  background-color: #f7f7f9;
-  padding-left: 10px;
+
+  pre {
+    code {
+      font-size: 15px;
+      color: black;
+    }
+  }
+
+
+  // font-family: 'Inconsolata', monospace;
+  // border: 0;
+  // font-weight: 700;
+
+  // margin-top: 20px;
+  // margin-bottom: 5px;
+  // border: 1px solid $grey-color-light;
+  // background-color: #f7f7f9;
+  // padding-left: 10px;
 }
