@@ -64,17 +64,19 @@
     @include media-query($on-palm) {
         padding-left: 0;
         padding-right: 0;
-        border-radius: 2pt;
+        border-radius: 4pt;
     }
 
     .navbar-toggler {
-      padding-top: 4px;
+      padding-top: 2px;
+      padding-bottom: 2px;
     }
 
     .navbar-brand {
-        padding-top: 5px;
-        padding-left: 30px;
-        padding-bottom: 15px;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-left: 20px;
+        padding-bottom: 5px;
         display: none;
         color: white;
         font-family: 'Comfortaa', cursive;
