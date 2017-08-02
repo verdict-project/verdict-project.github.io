@@ -125,9 +125,12 @@ After `veeline` launches, you can issue regular SQL queries as follows.
 ```
 verdict:impala> show databases;
 
+// Creates samples for the table. This step needs to be done only once for the table.
 verdict:impala> create sample of database_name.table_name;
 
 verdict:impala> select count(*) from database_name.table_name;
+
+verdict:impala> !quit
 ```
 
 #### Verdict-on-Hive
@@ -147,9 +150,12 @@ After `veeline` launches, you can issue regular SQL queries as follows.
 ```
 verdict:Apache Hive> show databases;
 
+// Creates samples for the table. This step needs to be done only once for the table.
 verdict:Apache Hive> create sample of database_name.table_name;
 
 verdict:Apache Hive> select count(*) from database_name.table_name;
+
+verdict:Apache Hive> !quit
 ```
 
 #### Verdict-on-Redshift
