@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Comfortaa');
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /**
@@ -8,9 +8,9 @@
     //border-top: 5px solid $grey-color-dark;
     //border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
-
     // Positioning context for the mobile navigation icon
     position: relative;
+    background-color: $nav-bar-background-color;
 }
 
 .site-title-bar {
@@ -55,11 +55,12 @@
 
 .navbar-purple {
     background-color: $nav-bar-background-color;
-    margin-top: 20px;
-    padding-right: 30px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     border-radius: 5pt;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
 
     @include media-query($on-palm) {
         padding-left: 0;
@@ -74,10 +75,10 @@
 
     .navbar-brand {
         margin-top: 0px;
-        padding-top: 0px;
-        padding-left: 20px;
+        padding-top: 10px;
+        padding-left: 0px;
         padding-bottom: 5px;
-        display: none;
+        display: inline;
         color: white;
         font-family: 'Comfortaa', cursive;
         font-size: 20pt;
@@ -88,6 +89,9 @@
     }
 
     .navbar-nav {
+        margin-left: 100px;
+        margin-top: 0px;
+
         @include media-query($on-palm) {
             margin-left: 0px;
             margin-right: 0px;
@@ -105,8 +109,8 @@
         }
 
         .nav-link {
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
 
             // when the screen width is relatively small
             @include media-query($on-laptop) {
@@ -119,8 +123,8 @@
             color: $nav-text-color;
             //font-family: 'Raleway', sans-serif;
             font-family: 'Lato', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
+            font-weight: 300;
+            font-size: 12px;
             //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
 
@@ -150,6 +154,48 @@
     .nav-item:hover {
         background-color: #161721;
     }
+}
+
+.home-large-text {
+    h1 {
+        font-weight: 400;
+        font-size: 34px;
+    }
+    p {
+        font-size: 24px;
+        font-weight: 300;
+    }
+}
+
+.home-intro {
+    color: white;
+    background-color: $nav-bar-background-color;
+    padding-bottom: 30px;
+
+    h1 {color: white}
+    p {color: white}
+}
+
+.home-demo {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.home-platform {
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.home-sql {
+    padding-top: 50px;
+    padding-bottom: 50px;   
+}
+
+.home-easy {
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .home-main {
@@ -276,7 +322,29 @@
  * Site footer
  */
 .site-footer {
-    padding: $spacing-unit 0;
+    background-color: #528B63;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+    ul li {
+        color: white;
+        font-size: 14px;
+        display: inline;
+    }
+
+    li > a {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: white;
+        font-size: 14px;
+    }
+
+    a:hover {
+        background-color: #243D2B;
+        text-decoration: none;
+    }
 }
 
 .footer-container {
@@ -351,7 +419,7 @@
  * Page content
  */
 .page-content {
-    padding: 0 $spacing-unit/2;
+    padding: 0;
 }
 
 .page-heading {

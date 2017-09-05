@@ -1,9 +1,7 @@
 ---
 layout: post
+title: Quick Start Guide
 ---
-
-{:.first}
-# Quick Start Guide
 
 * TOC
 {:toc}

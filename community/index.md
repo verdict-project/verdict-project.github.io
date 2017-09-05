@@ -1,9 +1,7 @@
 ---
 layout: post
+title: Community
 ---
-
-{:.first}
-# Verdict community
 
 Our primary goal is to build a usable system. We are committed to stay as an open-source project, which is possible since we are a government-funded research group at university.
 

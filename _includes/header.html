@@ -2,10 +2,9 @@
 
   <div class="container">
 
-    <div class="site-title-bar">
+    <!--<div class="site-title-bar">
       <div class="row">
         <div class="col-lg-3 col-md-3">
-        <!-- <div class="verdict-description" stype="line-height: 300px">Good</div> -->
           <a class="site-title" href="{{ site.baseurl }}/">
             <img class="verdict-logo" src="{{ site.baseurl }}/image/verdict-logo-bold.png" />
           </a>
@@ -14,7 +13,7 @@
           <span>Interactive-speed, Resource-efficient Query Processor</span>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <nav class="navbar navbar-toggleable-sm navbar-purple bg-faded">
       <!--<a href="#" class="menu-icon">
@@ -27,12 +26,13 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="material-icons w3-xxlarge" style="color: white;">menu</i>
       </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/image/verdict-logo-white.png" style="height: 40px; vertical-align: top;" /></a>
+      <a class="navbar-brand" href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/image/verdict-logo-thin2.png" style="height: 30px; vertical-align: top;" /></a>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
           {% for item in site.data.nav %}
+            {% if item.active %}
 
             {% if item.subcategories %}
 
@@ -56,6 +56,7 @@
 
             {% endif %}
 
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -68,7 +69,7 @@
         {% endfor %}
       </div>-->
     </nav>
-
+    <!-- end of nav -->
   </div>
 
 </header>

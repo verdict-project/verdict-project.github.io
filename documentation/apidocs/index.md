@@ -1,9 +1,7 @@
 ---
 layout: post
+title: API Documentation
 ---
-
-{:.first}
-# API Documentation
 
 See this [Javadoc](./apidocs).
 

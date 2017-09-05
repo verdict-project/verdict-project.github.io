@@ -1,9 +1,8 @@
 ---
 layout: post
+title: Download
 ---
 
-{:.first}
-# Download
 
 * TOC
 {:toc}

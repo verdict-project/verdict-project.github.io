@@ -1,9 +1,7 @@
 ---
 layout: post
+title: Speedup Examples
 ---
-
-{:.first}
-# Speedup Examples
 
 * TOC
 {:toc}
