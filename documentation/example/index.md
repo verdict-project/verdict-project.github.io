@@ -53,7 +53,7 @@ Below screenshots show the query answers from the two systems. Impala took 4.35 
 The second query analyzes how the number of orders changes during the time of day, by counting the total number of orders for every hour.
 
 ```sql
--- Q2. What times of the day more orders are placed?
+-- Q2. What times of the day are more orders placed?
 select order_hour_of_day, count(*) as c from orders
 group by order_hour_of_day
 order by order_hour_of_day;
