@@ -13,6 +13,14 @@
     background-color: $nav-bar-background-color;
 }
 
+.container {
+    @include media-query($on-laptop) {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
 .site-title-bar {
     padding-top: 10px;
     padding-bottom: 0px;
@@ -159,11 +167,39 @@
 .home-large-text {
     h1 {
         font-weight: 400;
-        font-size: 34px;
+        font-size: 30px;
     }
     p {
         font-size: 17px;
         font-weight: 300;
+    }
+}
+
+.disappear-on-small {
+    @include media-query($on-palm) {
+        display: none;
+    }
+}
+
+.appear-on-small {
+    display: none;
+    @include media-query($on-palm) {
+        display: inline;
+    }
+}
+
+#intro-video-frame {
+    @include media-query-on($on-palm) {
+        width: 300px;
+        height: 169px;
+    }
+    @include media-query-on($on-laptop) {
+        width: 400px;
+        height: 225px;
+    }
+    @include media-query-on($on-regular) {
+        width: 500px;
+        height: 281px;
     }
 }
 
@@ -176,26 +212,53 @@
     p {color: white}
 }
 
+#home-heading {
+    padding-top: 40px;
+
+    @include media-query($on-palm) {
+        padding-top: 0;
+    }
+}
+
 .home-demo {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
+
+    @include media-query($on-palm) {
+        padding-bottom: 5px;
+    }
 }
 
 .home-platform {
     background-color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include media-query($on-palm) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
 
 .home-sql {
-    padding-top: 50px;
-    padding-bottom: 50px;   
+    padding-top: 20px;
+    padding-bottom: 20px; 
+
+    @include media-query($on-palm) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }  
 }
 
 .home-easy {
     background-color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include media-query($on-palm) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
 
 .home-main {

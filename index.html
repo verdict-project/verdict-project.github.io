@@ -4,7 +4,7 @@ layout: default
 <div class="home-large-text home-intro">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6" style="padding-top:40px">
+      <div class="col-md-6 col-sm-12 col-xs-12" id="home-heading">
         <h1 style="margin-top: 0px; margin-bottom: 10px;">200x Fewer Resources</h1>
         <h1 style="margin-top: 10px; margin-bottom: 10px;">No Changes to the Application</h1>
         <h1 style="margin-top: 10px; margin-bottom: 15px;">Compatible with All SQL Engines</h1>
@@ -13,8 +13,11 @@ layout: default
         <!--<p>Watch this three-minute video to learn that Verdict can provide 100-200 times resource savings or speedup benefits.</p>
         <p>You can also find Verdict's massive speedups in our demo video or by quickly launching an Amazon EC2 instance from a Verdict image.</p>-->
       </div>
-      <div class="col-sm-6" style="padding-bottom:10px; padding-top:50px; padding-left:60px;">
-        <iframe width="500" height="281" src="https://www.youtube.com/embed/NGt1va7zu4c?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+      <div class="col-md-6 disappear-on-small" style="padding-bottom:10px; padding-top:50px; padding-left:60px;">
+        <iframe id="intro-video-frame" src="https://www.youtube.com/embed/NGt1va7zu4c?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-sm-12 appear-on-small">
+        <a href="https://youtu.be/NGt1va7zu4c" style="text-decoration: underline; text-decoration-color: white;"><p>Click to watch our intro video.</p></a>
       </div>
     </div>
   </div>
@@ -47,8 +50,8 @@ layout: default
         <h2>No Changes to Databases</h2>
         <p>Verdict is a query accelerator standing between your application and your SQL engine, whether it is a traditional DBMS or a modern SQL-on-Hadoop. Your application can simply issue the same queries but have the option of receiving an approximate answer instantly or waiting for an exact answer.</p>
         </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-6">
+      <div class="col-md-1 disappear-on-small"></div>
+      <div class="col-md-6 disappear-on-small">
         <img src="{{ site.baseurl }}/image/verdict-architecture.png" style="width: 100%; max-width: 500px; margin-right: 0px" />
       </div>
     </div>
@@ -58,7 +61,7 @@ layout: default
 <div class="home-sql">
   <div class="container">
     <div class="row">
-      <div class="col-md-6" style="padding-top: 20px;">
+      <div class="col-md-6 disappear-on-small" style="padding-top: 20px;">
         <img src="{{ site.baseurl }}/image/impala-logo.png" style="max-width: 150px; margin-right: 20px; margin-top: 20px;" />
         <img src="{{ site.baseurl }}/image/spark-logo.png" style="max-width: 150px; margin-right: 20px; margin-top: 20px;" />
         <img src="{{ site.baseurl }}/image/hive-logo.png" style="max-width: 100px; margin-right: 20px; margin-top: 20px;" />
@@ -68,7 +71,7 @@ layout: default
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <h2>Runs On All SQL-based Engines</h2>
-        <p>Verdict can run on any database that supports standard SQL (both traditional and modern). We already have drivers for Apache Hive, Apache Impala, Apache Spark, and Amazon Redshift. We are also in the process of adding drivers for many other databases, too (Google BigQuery, HP Vertica, Oracle, Teradata, MS SQL Server, and so on). If you are using a database that is not on this list, please email us and we will happily add a driver for your database too.</p>
+        <p>Verdict can run on any database that supports standard SQL (both traditional and modern). We already have drivers for Apache Hive, Apache Impala, Apache Spark, and Amazon Redshift. We are also in the process of adding drivers for many other databases too (Google BigQuery, HP Vertica, Oracle, Teradata, MS SQL Server, and so on). If you are using a database that is not on this list, please email us and we will happily add a driver for your database too.</p>
       </div>
     </div>
   </div>

@@ -47,6 +47,12 @@ $on-regular:	   1200px;
     }
 }
 
+@mixin media-query-on($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
+
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
