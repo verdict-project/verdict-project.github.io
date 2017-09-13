@@ -1,10 +1,29 @@
-- title: "How Verdict Works?"
-  url: "/how"
+- title: "EXAMPLE"
+  active: true
+  url: "/documentation/example"
 
-- title: "Download"
+- title: "DOWNLOAD"
+  active: true
   url: "/download"
 
-- title: "Documentation"
+- title: "QUICK START"
+  active: true
+  url: "/documentation/quick_start"
+
+- title: "DOCUMENTATION"
+  active: true
+  url: "http://verdict-doc.readthedocs.io/"
+
+- title: "RESEARCH"
+  active: false
+  url: "/documentation/research"
+
+- title: "COMMUNITY"
+  active: true
+  url: "/community"
+
+- title: "DOCUMENTATION"
+  active: false
   subcategories:
     - subtitle: "Speedup Examples"
       url: "/documentation/example"
@@ -21,5 +40,3 @@
     - subtitle: "Research"
       url: "/documentation/research"
 
-- title: "Community"
-  url: "/community"

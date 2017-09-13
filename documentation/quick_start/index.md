@@ -1,9 +1,7 @@
 ---
 layout: post
+title: Quick Start Guide
 ---
-
-{:.first}
-# Quick Start Guide
 
 * TOC
 {:toc}
@@ -37,7 +35,7 @@ Verdict takes a slightly different approach depending on the database system it 
 
 Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11). We will support Spark 2.0 shortly.
 
-We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in an Spark application written either in Scala or Python is the same.
+We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Spark application written either in Scala or Python is the same.
 
 Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. See this page for more detail about how to set up Verdict with Zeppelin or Jupyter.
 
@@ -81,7 +79,7 @@ $ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
 $ pyspark --driver-class-path target/verdict-core-0.3.0-jar-with-dependencies.jar
 ```
 
-**Limitation**: Note that, in order for the `--driver-class-path` option to work, the jar file (i.e., `target/verdict-core-0.3.0-jar-with-dependencies.jar`) must be placed in the Spark's driver node. Verdict will support `--jars` option shortly.
+**Limitation**: Note that, for the `--driver-class-path` option to work, the jar file (i.e., `target/verdict-core-0.3.0-jar-with-dependencies.jar`) must be placed in the Spark's driver node. Verdict will support `--jars` option shortly.
 
 After pyspark shell starts, import and use Verdict as follows.
 
@@ -106,7 +104,7 @@ The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; t
 
 ### On Apache Impala, Apache Hive, Amazon Redshift
 
-We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. See see [this page](http://verdictdb.org) for the instructions for a JDBC connection.
+We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. See [this page](http://verdictdb.org) for the instructions for a JDBC connection.
 
 #### Verdict-on-Impala
 

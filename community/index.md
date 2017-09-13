@@ -1,11 +1,11 @@
 ---
 layout: post
+title: Community
 ---
 
-{:.first}
-# Verdict community
+Verdict was initially developed by the database group at the University of Michigan, Ann Arbor; however, we welcome anyone to join and contribute to our project. See below for more details on the contributors.
 
-Our primary goal is to build a usable system. We are committed to stay as an open-source project, which is possible since we are a government-funded research group at university.
+As a research group at a university, we are committed to staying as an open-source project. Our project is under the Apache License version 2.0; therefore, one can use our code free of charge for both commercial and non-commercial purposes with and without modifications.
 
 Verdict has received much attention from the industry as well as from the academia. Our plan is to turning this project into an Apache project within a few months.
 
@@ -25,7 +25,6 @@ Verdict is developed and maintained primarily by the database group at the Unive
 | Barzan Mozafari | University of Michigan, Ann Arbor |
 | Joseph Sorenson | University of Michigan, Ann Arbor |
 | Junhao Wang     | University of Michigan, Ann Arbor |
-| Li-yin Young    | University of Colorado            |
 | Xiaoran Xu      | University of Michigan, Ann Arbor |
 | Shahab Tajik    | Apple                             |
 
