@@ -104,7 +104,13 @@ The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; t
 
 ### On Apache Impala, Apache Hive, Amazon Redshift
 
-We will use our command line interface (which is called `veeline`) for connecting to those databases. You can programmatically connect to Verdict using the standard JDBC interface, too. See [this page](http://verdictdb.org) for the instructions for a JDBC connection.
+We will use our command line interface (which is called `veeline`) for connecting to those databases. You can also programmatically connect to Verdict (see [this page](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications)).
+
+
+#### Prerequsites for `veeline`
+
+`veeline` uses the JDBC drivers stored in the `libs` folder for making a connection to the database Verdict works with. Therefore, to make `veeline` able to connect to your database, you must store the `jar` files required to make a connection to your database. By default, our code ships with the Cloudera's Impala and Hive JDBC drivers, and Redshift JDBC drivers. However, if these drivers are not compatible with your environment, you should put the compatible JDBC drivers in the `libs` folder in place of existing ones. We plan to automate this process in the future.
+
 
 #### Verdict-on-Impala
 
@@ -161,7 +167,7 @@ verdict:Apache Hive> !quit
 Type the following command in terminal to launch `veeline` that connects to Amazon Redshift.
 
 ```bash
-$ veeline/bin/veeline -h "redshift://endpoint:port/schema;key1=value1;key2=value2;..." -u username -p password
+$ veeline/bin/veeline -h "redshift://endpoint:port/database;key1=value1;key2=value2;..." -u username -p password
 ```
 
 Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
@@ -169,19 +175,18 @@ Note that parameters are delimited using semicolons (`;`). The connection string
 After `veeline` launches, you can issue regular SQL queries as follows.
 
 ```
+// In Redshift, this displays the schemas in the database to which you are connected
 verdict:PostgreSQL> show databases;
 
 // Creates samples for the table. This step needs to be done only once for the table.
-verdict:PostgreSQL> create sample of database_name.table_name;
+verdict:PostgreSQL> create sample of schema_name.table_name;
 
-verdict:PostgreSQL> select count(*) from database_name.table_name;
+verdict:PostgreSQL> select count(*) from schema_name.table_name;
 
 verdict:PostgreSQL> !quit
 ```
 
-#### Notes on using `veeline`
-
-`veeline` makes a JDBC connection to the database systems that Verdict work on top of (e.g., Impala or Hive). For this, it uses the JDBC drivers stored in the `lib` folder. Our code ships by default with the Cloudera's Impala and Hive JDBC drivers (jar files). However, if these drivers are not compatible with your environment, you can put the compatible JDBC drivers in the `lib` folder after deleting existing ones.
+The [search path](http://docs.aws.amazon.com/redshift/latest/dg/r_search_path.html) can be set by `use schema_name;` statement. Currently, only a single schema name can be set for the search path using the `use` statement.
 
 
 ## What's Next
