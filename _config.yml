@@ -32,4 +32,7 @@ verdict_core_jar_name: verdict-core-0.4.12-jar-with-dependencies.jar
 verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-core-0.4.12-jar-with-dependencies.jar/download
 verdict_jdbc_jar_name: verdict-jdbc-0.4.12-jar-with-dependencies.jar
 verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.12-jar-with-dependencies.jar/download
-verdict_command_line_zip_name: verdict-cli-0.4.12.zipverdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.12.zip
+verdict_command_line_zip_name: verdict-cli-0.4.12.zip
+verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.12.zip/download
+
+
