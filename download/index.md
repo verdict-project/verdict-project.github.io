@@ -44,3 +44,9 @@ Clone our Github repository or download an archive of it latest source code. Ver
 1. **Download**: [Github snapshot](https://github.com/mozafari/verdict/archive/master.zip)
 1. **Visit**: [Github repository](https://github.com/mozafari/verdict)
 
+After downloading the source code (and unzipping it), go to the directory (e.g., `cd verdict`) and type `mvn package` for compiling the code. The command will generate three `jar` files under the `jars` directory with the names:
+1. verdict-core-{{ site.version }}-jar-with-dependencies.jar
+1. verdict-jdbc-{{ site.version }}-jar-with-dependencies.jar
+1. verdict-veeline-{{ site.version }}-jar-with-dependencies.jar
+
+
