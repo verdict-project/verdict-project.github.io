@@ -26,14 +26,15 @@ kramdown:
       start_line: 1
 
 # Project settings
-version: 0.4.2
+version: 0.4.0
 github_link: https://github.com/mozafari/verdict
-verdict_core_jar_name: verdict-spark-lib-0.4.2.jar
-verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.2.jar/download
-verdict_jdbc_jar_name: verdict-jdbc-0.4.2.jar
-verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.2.jar/download
-verdict_veeline_jar_name: verdict-shell-0.4.2.jar
-verdict_command_line_zip_name: verdict-cli-0.4.2.zip
-verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.2.zip/download
+verdict_core_jar_name: verdict-spark-lib-0.4.0.jar
+verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.0.jar/download
+verdict_jdbc_jar_name: verdict-jdbc-0.4.0.jar
+verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.0.jar/download
+verdict_veeline_jar_name: verdict-shell-0.4.0.jar
+verdict_command_line_zip_name: verdict-cli-0.4.0.zip
+verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.0.zip/download
+
 
 
