@@ -22,7 +22,7 @@ Verdict takes a slightly different approach depending on the database system it 
 
 ### Apache Spark
 
-Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11). We will support Spark 2.0 shortly.
+Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested both with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11)and Spark 2.0.
 
 We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Spark application written either in Scala or Python is the same.
 
@@ -30,7 +30,7 @@ Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdic
 
 
 #### (Scala) Spark
-
+##### Spark 1.6.0
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
@@ -56,6 +56,33 @@ scala> vc.sql("select count(*) from database_name.table_name").show(false)
 ```
 
 The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class; thus, any methods that work on Spark's DataFrame work on Verdict's answer seamlessly.
+
+##### Spark 2.0
+You can start `spark-shell` with Verdict as follows.
+
+```bash
+$ spark-shell --jars {{ site.verdict_core_jar_name }}
+```
+
+After spark-shell starts, import and use Verdict as follows.
+
+```scala
+import edu.umich.verdict.VerdictSpark2Context
+
+scala> val vc = new VerdictSpark2Context(sc)   // sc: SparkContext instance
+
+scala> vc.sql("show databases").show(false)       // Simply displays the databases (or often called schemas)
+
+// Creates samples for the table. This step needs to be done only once for the table.
+// The created tables are automatically persisted through HiveContext and can be used in the other
+// pyspark applications.
+scala> vc.sql("create sample of database_name.table_name").show(false)
+
+// Now Verdict automatically uses available samples for speeding up this query.
+scala> vc.sql("select count(*) from database_name.table_name").show(false)
+```
+
+The return value of `VerdictSparkHiveContext#sql()` is a Spark's Dataset class; thus, any methods that work on Spark's Dataset work on Verdict's answer seamlessly.
 
 
 #### PySpark
