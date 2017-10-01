@@ -26,12 +26,10 @@ kramdown:
       start_line: 1
 
 # Project settings
-version: 0.3.0
+version: 0.4.12
 github_link: https://github.com/mozafari/verdict
-verdict_core_jar_name: verdict-core-0.4.11-jar-with-dependencies.jar
-verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-core-0.4.11-jar-with-dependencies.jar/download
-verdict_jdbc_jar_name: verdict-jdbc-0.4.11-jar-with-dependencies.jar
-verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.11-jar-with-dependencies.jar/download
-verdict_command_line_zip_name:
-verdict_command_line_zip_url:
-verdict_code_snapshot: verdict-0.3.0.zip
+verdict_core_jar_name: verdict-core-0.4.12-jar-with-dependencies.jar
+verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-core-0.4.12-jar-with-dependencies.jar/download
+verdict_jdbc_jar_name: verdict-jdbc-0.4.12-jar-with-dependencies.jar
+verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.12-jar-with-dependencies.jar/download
+verdict_command_line_zip_name: verdict-cli-0.4.12.zipverdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.12.zip
