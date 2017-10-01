@@ -45,8 +45,9 @@ Clone our Github repository or download an archive of it latest source code. Ver
 1. **Visit**: [Github repository](https://github.com/mozafari/verdict)
 
 After downloading the source code (and unzipping it), go to the directory (e.g., `cd verdict`) and type `mvn package` for compiling the code. The command will generate three `jar` files under the `jars` directory with the names:
-1. verdict-core-{{ site.version }}-jar-with-dependencies.jar
-1. verdict-jdbc-{{ site.version }}-jar-with-dependencies.jar
-1. verdict-veeline-{{ site.version }}-jar-with-dependencies.jar
+1. {{ site.verdict_core_jar_name }}
+1. {{ site.verdict_jdbc_jar_name }}
+1. {{ site.verdict_veeline_jar_name }}
 
+The first jar file (with "core" in its name) is used for Spark. The second jar file is Verdict's JDBC driver. The third jar file is used (in conjunction with the second jar file) for Verdict's command line interface.
 
