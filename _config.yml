@@ -11,7 +11,7 @@ email: verdict-site@umich.edu
 description: >            # this means to ignore newlines until "baseurl:"
     Verdict is a fast, resource-efficient data analytics system.
 baseurl: ""               # the subpath of your site, e.g. /blog
-url: http://verdictdb.org/
+url: "http://verdictdb.org/"
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -35,4 +35,5 @@ verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict
 verdict_veeline_jar_name: verdict-shell-0.4.2.jar
 verdict_command_line_zip_name: verdict-cli-0.4.2.zip
 verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.2.zip/download
+
 
