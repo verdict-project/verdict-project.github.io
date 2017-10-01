@@ -3,16 +3,19 @@ layout: post
 title: Community
 ---
 
-Verdict was initially developed by the database group at the University of Michigan, Ann Arbor; however, we welcome anyone to join and contribute to our project. See below for more details on the contributors.
+* TOC
+{:toc}
 
-As a research group at a university, we are committed to staying as an open-source project. Our project is under the Apache License version 2.0; therefore, one can use our code free of charge for both commercial and non-commercial purposes with and without modifications.
+Verdict is developed primarily by the database group at the University of Michigan, Ann Arbor; however, we welcome anyone to join and contribute to our project. See below for more details on the contributors.
 
-Verdict has received much attention from the industry as well as from the academia. Our plan is to turning this project into an Apache project within a few months.
+As a research group at a university, we are committed to staying as an open-source project. Our project is under the Apache License version 2.0; therefore, one can use our code free of charge for both commercial and non-commercial purposes with or without modifications.
+
+Several multinational corporations are now testing Verdict on top of their own data analytics platforms, and our team is supporting them.
 
 
-## Mailing lists
+## Mailing list, Bug Reports, Feature Requests
 
-For debug issues, bugs, feature requests, opinions, etc., it is recommended you to use the `verdict-user@umich.edu` mailing list. Anyone can join the mailing list at [this website](https://mcommunity.umich.edu/#group:Verdict%20Users). Some people found it to be more convenient to open issues in [this Github page](https://github.com/mozafari/verdict/issues). We are notified your feedbacks immediately via email.
+For feature requests, opinions, etc., it is recommended you to use the `verdict-user@umich.edu` mailing list. Anyone can join the mailing list at [this website](https://mcommunity.umich.edu/#group:Verdict%20Users). Some people found it to be more convenient to open issues in [this Github page](https://github.com/mozafari/verdict/issues). We are notified your feedbacks immediately via email.
 
 
 ## Contributors
@@ -27,6 +30,7 @@ Verdict is developed and maintained primarily by the database group at the Unive
 | Junhao Wang     | University of Michigan, Ann Arbor |
 | Xiaoran Xu      | University of Michigan, Ann Arbor |
 | Shahab Tajik    | Apple                             |
+| Wen He          | University of Michigan, Ann Arbor |
 
 
 ## Research discussions
