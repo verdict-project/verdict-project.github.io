@@ -62,9 +62,9 @@ Compile the source code using either of the following commands depending on your
 {% endfor %}
 
 The above commands will generate three `jar` files under the `jars` directory in the following patterns:
-1. `verdict-spark-lib-(version).jar`
-1. `verdict-jdbc-(platform)-(version).jar`
-1. `verdict-shell-(version).jar`
+1. verdict-spark-lib-(version).jar
+1. verdict-jdbc-(platform)-(version).jar
+1. verdict-shell-(version).jar
 
 The first jar file is used for Spark. The second jar file is Verdict's JDBC driver. The third jar file is used (in conjunction with the second jar file) for Verdict's command line interface.
 
