@@ -1,46 +1,42 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+baseurl: ''
+description: 'Verdict is a fast, resource-efficient data analytics system.
 
-# Site settings
-title: Verdict
+  '
 email: verdict-site@umich.edu
-description: >            # this means to ignore newlines until "baseurl:"
-    Verdict is a fast, resource-efficient data analytics system.
-baseurl: ""               # the subpath of your site, e.g. /blog
-url: "http://verdictdb.org/"
-twitter_username: jekyllrb
-github_username:  jekyll
-
-# Build settings
-markdown: kramdown
+github_link: https://github.com/mozafari/verdict
+github_username: jekyll
 kramdown:
   syntax_highlighter_opts:
-    span:
-      line_numbers: false
     block:
       line_numbers: false
       start_line: 1
-
-# Project settings
-version: 0.4.0
-github_link: https://github.com/mozafari/verdict
-verdict_core_jar_name: verdict-spark-lib-0.4.0.jar
-verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.0.jar/download
-verdict_jdbc_jar_name: verdict-jdbc-0.4.0.jar
-verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.0.jar/download
-verdict_veeline_jar_name: verdict-shell-0.4.0.jar
+    span:
+      line_numbers: false
+markdown: kramdown
+title: Verdict
+twitter_username: jekyllrb
+url: http://verdictdb.org/
 verdict_command_line_zip_name: verdict-cli-0.4.0.zip
 verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.0.zip/download
+verdict_core_jar_name: verdict-spark-lib-0.4.0.jar
+verdict_core_jar_url: 'https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.0.jar/download
 
+  '
+verdict_jdbc:
+  cdh5.11.1:
+    name: verdict-cli-cdh5.11.1-0.4.0.zip
+    url: 'https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.11.1-0.4.0.zip/download
 
+      '
+  redshift:
+    name: verdict-cli-redshift-0.4.0.zip
+    url: 'https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-redshift-0.4.0.zip/download
 
-
-
-
-
-
-
+      '
+verdict_jdbc_jar_name: verdict-jdbc-0.4.0.jar
+verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.0.jar/download
+verdict_shell:
+  cdh5.11.1: {}
+  redshift: {}
+verdict_veeline_jar_name: verdict-shell-0.4.0.jar
+version: 0.4.0
