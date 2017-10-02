@@ -20,15 +20,17 @@ verdict_core_jar_name: verdict-spark-lib-0.4.0.jar
 verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.0.jar/download
 verdict_jdbc:
   cdh5.11.1:
+    name: verdict-jdbc-cdh5.11.1-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.11.1-0.4.0.jar/download
+  redshift:
+    name: verdict-jdbc-redshift-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-redshift-0.4.0.jar/download
+verdict_shell:
+  cdh5.11.1:
     name: verdict-cli-cdh5.11.1-0.4.0.zip
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.11.1-0.4.0.zip/download
   redshift:
     name: verdict-cli-redshift-0.4.0.zip
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-redshift-0.4.0.zip/download
-verdict_jdbc_jar_name: verdict-jdbc-0.4.0.jar
-verdict_jdbc_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.0.jar/download
-verdict_shell:
-  cdh5.11.1: {}
-  redshift: {}
 verdict_veeline_jar_name: verdict-shell-0.4.0.jar
 version: 0.4.0
