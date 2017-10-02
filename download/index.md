@@ -25,6 +25,8 @@ Download the below jar file and [include it in Spark applications](https://spark
 **Download for {{ name_url['family'] }} - {{ platform }}**: [{{ name_url['name'] }}]({{ name_url['url'] }})
 {% endfor %}
 
+Note that `2.10` and `2.11` suffixed to the official Spark versions are the Scala versions.
+
 
 ## Hive, Impala, Redshift: Command-line Interface
 

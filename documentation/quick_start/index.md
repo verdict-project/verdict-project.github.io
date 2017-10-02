@@ -6,21 +6,18 @@ title: Quick Start Guide
 * TOC
 {:toc}
 
-Verdict can run on top of [Apache Hive](https://hive.apache.org/), [Apache Impala](https://impala.incubator.apache.org/), and [Apache Spark](https://spark.apache.org/). We are adding drivers for other database systems, such as Amazon Redshift, Google BigQuery, Google Dataproc, etc.
+Verdict can run on top of [Apache Hive](https://hive.apache.org/), [Apache Impala](https://impala.incubator.apache.org/), [Apache Spark](https://spark.apache.org/), and [Amazon Redshift](https://aws.amazon.com/redshift) We are adding drivers for other database systems, such as Facebook Presto, Google BigQuery, Google Dataproc, etc.
 
-Using Verdict is easy. Following this guide, you can finish setup in five minutes if you have any of those supported systems ready.
+Using Verdict is easy. Following this guide, you can finish setup in five minutes if you have any of those supported systems ready. Verdict takes a slightly different approach depending on the database system it works with. Once connected, however, you can issue the same SQL queries.
 
-## Download and Install Verdict
+
+## Download and Install
 
 See [this page]({{ site.baseurl }}/download/) to download jar or zip archives relevant to your data analytics platforms.
 
 
-## Using Verdict
 
-Verdict takes a slightly different approach depending on the database system it works with. Once connected, however, you can issue the same SQL queries.
-
-
-### Apache Spark
+## Verdict on Apache Spark
 
 Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore.
 
@@ -29,7 +26,7 @@ We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Sp
 Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. Our [documentation](http://verdict-doc.readthedocs.io/en/latest/using.html#in-apache-zeppelin) provides more information.
 
 
-#### Spark 1.6
+### Spark 1.6
 
 You can start `spark-shell` with Verdict as follows.
 
@@ -58,7 +55,7 @@ scala> vc.sql("select count(*) from database_name.table_name").show(false)
 The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class; thus, any methods that work on Spark's DataFrame work on Verdict's answer seamlessly.
 
 
-#### Spark 2
+### Spark 2.0 or later
 
 You can start `spark-shell` with Verdict as follows.
 
@@ -87,14 +84,14 @@ scala> vc.sql("select count(*) from database_name.table_name").show(false)
 The return value of `VerdictSpar2Context#sql()` is a Spark's Dataset class; thus, any methods that work on Spark's Dataset work on Verdict's answer seamlessly.
 
 
-#### PySpark 1.6
+### PySpark 1.6
 
 You can start `pyspark` shell with Verdict as follows.
 
 ```bash
 $ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
 
-$ pyspark --driver-class-path {{ site.verdict_core_jar_name }}
+$ pyspark --driver-class-path verdict-spark-lib-(version).jar
 ```
 
 **Limitation**: Note that, for the `--driver-class-path` option to work, the jar file (i.e., `{{ site.verdict_core_jar_name }}`) must be placed in the Spark's driver node. `--jars` option can be used for Spark 2.0 or later.
@@ -120,21 +117,21 @@ vc.sql("select count(*) from database_name.table_name").show()
 The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; thus, any methods that work on pyspark's DataFrame work on Verdict's answer seamlessly.
 
 
-#### PySpark 2
+### PySpark 2.0 or later
 
 This will be added shortly.
 
 
-### Impala, Hive, Redshift
+## Impala, Hive, Redshift
 
 We will use our command line interface (which is called `verdict-shell`) for connecting to those databases. You can also programmatically connect to Verdict through its JDBC driver (see [this page](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications)).
 
-#### Notes
+### Notes
 
 `verdict-shell` relies on the JDBC drivers provided by individual database vendors; thus, if your database is not compatible with the drivers packaged in {{ site.verdict_command_line_zip_name }}, `verdict-shell` will not be able to make a connection to your database. In this case, please contact our team for support. We will add a right set of JDBC drivers promptly.
 
 
-#### Impala
+### Apache Impala
 
 Type the following command in terminal to launch `verdict-shell` that connects to Impala.
 
@@ -159,7 +156,7 @@ verdict:impala> select count(*) from database_name.table_name;
 verdict:impala> !quit
 ```
 
-#### Hive
+### Apache Hive
 
 Type the following command in terminal to launch `verdict-shell` that connects to Hive.
 
@@ -184,7 +181,7 @@ verdict:Apache Hive> select count(*) from database_name.table_name;
 verdict:Apache Hive> !quit
 ```
 
-#### Redshift
+### Amazon Redshift
 
 Type the following command in terminal to launch `verdict-shell` that connects to Amazon Redshift.
 
