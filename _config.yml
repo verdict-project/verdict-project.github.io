@@ -16,10 +16,6 @@ markdown: kramdown
 title: Verdict
 twitter_username: jekyllrb
 url: http://verdictdb.org/
-verdict_command_line_zip_name: verdict-cli-0.4.0.zip
-verdict_command_line_zip_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.0.zip/download
-verdict_core_jar_name: verdict-spark-lib-0.4.0.jar
-verdict_core_jar_url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.0.jar/download
 verdict_jdbc:
   cdh5.11.1:
     family: CDH
@@ -29,34 +25,10 @@ verdict_jdbc:
     family: CDH
     name: verdict-jdbc-cdh5.12.1-0.4.0.jar
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.12.1-0.4.0.jar/download
-  mapr-spark2.0.1:
-    family: CDH
-    name: verdict-jdbc-mapr-spark2.0.1-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-mapr-spark2.0.1-0.4.0.jar/download
-  mapr-spark2.1.0:
-    family: CDH
-    name: verdict-jdbc-mapr-spark2.1.0-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-mapr-spark2.1.0-0.4.0.jar/download
   redshift41:
     family: Redshift
     name: verdict-jdbc-redshift41-0.4.0.jar
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-redshift41-0.4.0.jar/download
-  spark2_2.10:
-    family: Apache
-    name: verdict-jdbc-spark2_2.10-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-spark2_2.10-0.4.0.jar/download
-  spark2_2.11:
-    family: Apache
-    name: verdict-jdbc-spark2_2.11-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-spark2_2.11-0.4.0.jar/download
-  spark_2.10:
-    family: Apache
-    name: verdict-jdbc-spark_2.10-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-spark_2.10-0.4.0.jar/download
-  spark_2.11:
-    family: Apache
-    name: verdict-jdbc-spark_2.11-0.4.0.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-spark_2.11-0.4.0.jar/download
 verdict_shell:
   cdh5.11.1:
     family: CDH
@@ -66,32 +38,41 @@ verdict_shell:
     family: CDH
     name: verdict-cli-cdh5.12.1-0.4.0.zip
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.12.1-0.4.0.zip/download
-  mapr-spark2.0.1:
-    family: CDH
-    name: verdict-cli-mapr-spark2.0.1-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-mapr-spark2.0.1-0.4.0.zip/download
-  mapr-spark2.1.0:
-    family: CDH
-    name: verdict-cli-mapr-spark2.1.0-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-mapr-spark2.1.0-0.4.0.zip/download
   redshift41:
     family: Redshift
     name: verdict-cli-redshift41-0.4.0.zip
     url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-redshift41-0.4.0.zip/download
+verdict_spark:
+  cdh5.11.1:
+    family: CDH
+    name: verdict-spark-lib-cdh5.11.1-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.11.1-0.4.0.jar/download
+  cdh5.12.1:
+    family: CDH
+    name: verdict-spark-lib-cdh5.12.1-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.12.1-0.4.0.jar/download
+  mapr-spark2.0.1:
+    family: CDH
+    name: verdict-spark-lib-mapr-spark2.0.1-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.0.1-0.4.0.jar/download
+  mapr-spark2.1.0:
+    family: CDH
+    name: verdict-spark-lib-mapr-spark2.1.0-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.1.0-0.4.0.jar/download
   spark2_2.10:
     family: Apache
-    name: verdict-cli-spark2_2.10-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-spark2_2.10-0.4.0.zip/download
+    name: verdict-spark-lib-spark2_2.10-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.10-0.4.0.jar/download
   spark2_2.11:
     family: Apache
-    name: verdict-cli-spark2_2.11-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-spark2_2.11-0.4.0.zip/download
+    name: verdict-spark-lib-spark2_2.11-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.11-0.4.0.jar/download
   spark_2.10:
     family: Apache
-    name: verdict-cli-spark_2.10-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-spark_2.10-0.4.0.zip/download
+    name: verdict-spark-lib-spark_2.10-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.10-0.4.0.jar/download
   spark_2.11:
     family: Apache
-    name: verdict-cli-spark_2.11-0.4.0.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-spark_2.11-0.4.0.zip/download
+    name: verdict-spark-lib-spark_2.11-0.4.0.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.11-0.4.0.jar/download
 version: 0.4.0
