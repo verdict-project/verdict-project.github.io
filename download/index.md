@@ -27,7 +27,7 @@ Download the below zip archive, extract it, and start an interactive command-lin
     {% assign name_url = item[1] %}
     {% assign name = name_url['name'] %}
     {% assign url = name_url['url'] %}
-**Download for {{ platform }}**: [{{ name }}]({{ url }})
+**Download for {{ name_url['family'] }} ({{ platform }})**: [{{ name_url['name'] }}]({{ name_url['url'] }})
 {% endfor %}
 
 <!-- **Download for %**: [{{ site.verdict_command_line_zip_name }}]({{ site.verdict_command_line_zip_url }}) -->
@@ -42,9 +42,7 @@ You can load below jar file in your Java applications in [a standard way](https:
 {% for item in site.verdict_shell %}
     {% assign platform = item[0] %}
     {% assign name_url = item[1] %}
-    {% assign name = name_url['name'] %}
-    {% assign url = name_url['url'] %}
-**Download for {{ platform }}**: [{{ name }}]({{ url }})
+**Download for {{ name_url['family'] }} ({{ platform }})**: [{{ name_url['name'] }}]({{ name_url['url'] }})
 {% endfor %}
 
 Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drivers for [Apache Hive](https://www.cloudera.com/downloads/connectors/hive/jdbc/2-5-4.html), [Apache Impala](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-5-41.html), [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver), etc., without any modifications. The sole purpose of including those JDBC drivers in the above jar file is for the convenience of the existing users of those systems, and Verdict does not use any part of those JDBC drivers in its codebase.
@@ -57,8 +55,11 @@ Clone our Github repository or download an archive of it latest source code. Ver
 1. **Visit**: [Github repository](https://github.com/mozafari/verdict)
 
 Compile the source code using either of the following commands depending on your platform:
-- CDH: `mvn package -Pcdh5.11.1`
-- Redshift: `mvn package -Predshift`
+{% for item in site.verdict_shell %}
+    {% assign platform = item[0] %}
+    {% assign name_url = item[1] %}
+- {{ name_url['family'] }}: `mvn package -P{{ platform }}`
+{% endfor %}
 
 The above commands will generate three `jar` files under the `jars` directory in the following patterns:
 1. `verdict-spark-lib-(version).jar`
