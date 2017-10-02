@@ -63,14 +63,24 @@ Clone our Github repository or download an archive of it latest source code. Ver
 1. **Visit**: [Github repository](https://github.com/mozafari/verdict)
 
 Compile the source code using either of the following commands depending on your platform:
+{% assign platforms = "" %}
+{% for item in site.verdict_spark %}
+    {% assign platforms = platforms | append: "," | append: item[0] %}
+{% endfor %}
+{% for item in site.verdict_jdbc %}
+    {% assign platforms = platforms | append: "," | append: item[0] %}
+{% endfor %}
 {% for item in site.verdict_shell %}
-    {% assign platform = item[0] %}
-    {% assign name_url = item[1] %}
-- {{ name_url['family'] }}: `mvn package -P{{ platform }}`
+    {% assign platforms = platforms | append: "," | append: item[0] %}
+{% endfor %}
+{% assign platforms = platforms | remove_first: "," | split: "," | uniq %}
+{% for p in platforms %}
+1. {{ p }}: `mvn package -P{{ p }}`
+
 {% endfor %}
 
-The above commands will generate three `jar` files under the `jars` directory in the following patterns:
-1. verdict-spark-lib-(version).jar
+The above commands will generate up to three `jar` files under the `jars` directory in the following patterns:
+1. verdict-spark-lib-(platform)-(version).jar
 1. verdict-jdbc-(platform)-(version).jar
 1. verdict-shell-(version).jar
 
