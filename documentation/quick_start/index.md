@@ -29,8 +29,8 @@ We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Sp
 Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. See this page for more detail about how to set up Verdict with Zeppelin or Jupyter.
 
 
-#### (Scala) Spark
-##### Spark 1.6.0
+#### Spark 1.6
+
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
@@ -57,7 +57,9 @@ scala> vc.sql("select count(*) from database_name.table_name").show(false)
 
 The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class; thus, any methods that work on Spark's DataFrame work on Verdict's answer seamlessly.
 
-##### Spark 2.0
+
+#### Spark 2
+
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
@@ -69,12 +71,12 @@ After spark-shell starts, import and use Verdict as follows.
 ```scala
 import edu.umich.verdict.VerdictSpark2Context
 
-scala> val vc = new VerdictSpark2Context(sc)   // sc: SparkContext instance
+scala> val vc = new VerdictSpark2Context(sc)      // sc: SparkContext instance
 
 scala> vc.sql("show databases").show(false)       // Simply displays the databases (or often called schemas)
 
 // Creates samples for the table. This step needs to be done only once for the table.
-// The created tables are automatically persisted through HiveContext and can be used in the other
+// The created tables are automatically persisted and can be used in the other
 // pyspark applications.
 scala> vc.sql("create sample of database_name.table_name").show(false)
 
@@ -82,10 +84,10 @@ scala> vc.sql("create sample of database_name.table_name").show(false)
 scala> vc.sql("select count(*) from database_name.table_name").show(false)
 ```
 
-The return value of `VerdictSparkHiveContext#sql()` is a Spark's Dataset class; thus, any methods that work on Spark's Dataset work on Verdict's answer seamlessly.
+The return value of `VerdictSpar2Context#sql()` is a Spark's Dataset class; thus, any methods that work on Spark's Dataset work on Verdict's answer seamlessly.
 
 
-#### PySpark
+#### PySpark 1.6
 
 You can start `pyspark` shell with Verdict as follows.
 
@@ -100,29 +102,34 @@ $ pyspark --driver-class-path {{ site.verdict_core_jar_name }}
 After pyspark shell starts, import and use Verdict as follows.
 
 ```python
->>> from pyverdict import VerdictHiveContext
+from pyverdict import VerdictHiveContext
 
->>> vc = VerdictHiveContext(sc)        # sc: SparkContext instance
+vc = VerdictHiveContext(sc)        # sc: SparkContext instance
 
->>> vc.sql("show databases").show()    # Simply displays the databases (or often called schemas)
+vc.sql("show databases").show()    # Simply displays the databases (or often called schemas)
 
 # Creates samples for the table. This step needs to be done only once for the table.
 # The created tables are automatically persisted through HiveContext and can be used in the other
 # pyspark applications.
->>> vc.sql("create sample of database_name.table_name").show()
+vc.sql("create sample of database_name.table_name").show()
 
 # Now Verdict automatically uses available samples for speeding up this query.
->>> vc.sql("select count(*) from database_name.table_name").show()
+vc.sql("select count(*) from database_name.table_name").show()
 ```
 
 The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; thus, any methods that work on pyspark's DataFrame work on Verdict's answer seamlessly.
 
 
+#### PySpark 2
+
+This will be added shortly.
+
+
 ### Impala, Hive, Redshift
 
-We will use our command line interface (which is called `verdict-shell`) for connecting to those databases. You can also programmatically connect to Verdict (see [this page](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications)).
+We will use our command line interface (which is called `verdict-shell`) for connecting to those databases. You can also programmatically connect to Verdict through its JDBC driver (see [this page](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications)).
 
-#### Prerequisites
+#### Notes
 
 `verdict-shell` relies on the JDBC drivers provided by individual database vendors; thus, if your database is not compatible with the drivers packaged in {{ site.verdict_command_line_zip_name }}, `verdict-shell` will not be able to make a connection to your database. In this case, please contact our team for support. We will add a right set of JDBC drivers promptly.
 
@@ -137,7 +144,7 @@ $ bin/verdict-shell -h "impala://hostname:port/schema;key1=value1;key2=value2;..
 
 Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
 
-Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
+Verdict also supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
 
 After `verdict-shell` launches, you can issue regular SQL queries as follows.
 
@@ -190,8 +197,8 @@ Note that parameters are delimited using semicolons (`;`). The connection string
 After `verdict-shell` launches, you can issue regular SQL queries as follows.
 
 ```
-// In Redshift, this displays the schemas in the database to which you are connected
-verdict:PostgreSQL> show databases;
+// Displays the schemas in the database to which you are connected
+verdict:PostgreSQL> show schemas;
 
 // Creates samples for the table. This step needs to be done only once for the table.
 verdict:PostgreSQL> create sample of schema_name.table_name;
