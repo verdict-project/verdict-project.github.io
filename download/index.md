@@ -10,6 +10,8 @@ Download relevant jar or archive files depending on your use cases. You can also
 
 Verdict does not require any separate steps for installation. Simply placing those downloaded files in any of your local file system is enough for starting to use Verdict.
 
+All the jar files provided below are compiled using Oracle JDK 8.
+
 
 ## Apache Spark
 
