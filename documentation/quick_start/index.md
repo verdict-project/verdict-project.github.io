@@ -22,11 +22,11 @@ Verdict takes a slightly different approach depending on the database system it 
 
 ### Apache Spark
 
-Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore. Verdict is tested both with Apache Spark 1.6.0 (in the Cloudera distribution CDH 5.11)and Spark 2.0.
+Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore.
 
 We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Spark application written either in Scala or Python is the same.
 
-Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. See this page for more detail about how to set up Verdict with Zeppelin or Jupyter.
+Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. Our [documentation](http://verdict-doc.readthedocs.io/en/latest/using.html#in-apache-zeppelin) provides more information.
 
 
 #### Spark 1.6
@@ -34,7 +34,7 @@ Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdic
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
-$ spark-shell --jars {{ site.verdict_core_jar_name }}
+$ spark-shell --jars verdict-spark-lib-(version).jar
 ```
 
 After spark-shell starts, import and use Verdict as follows.
@@ -48,7 +48,7 @@ scala> vc.sql("show databases").show(false)       // Simply displays the databas
 
 // Creates samples for the table. This step needs to be done only once for the table.
 // The created tables are automatically persisted through HiveContext and can be used in the other
-// pyspark applications.
+// Spark applications.
 scala> vc.sql("create sample of database_name.table_name").show(false)
 
 // Now Verdict automatically uses available samples for speeding up this query.
@@ -63,7 +63,7 @@ The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
-$ spark-shell --jars {{ site.verdict_core_jar_name }}
+$ spark-shell --jars verdict-spark-lib-(version).jar
 ```
 
 After spark-shell starts, import and use Verdict as follows.
@@ -77,7 +77,7 @@ scala> vc.sql("show databases").show(false)       // Simply displays the databas
 
 // Creates samples for the table. This step needs to be done only once for the table.
 // The created tables are automatically persisted and can be used in the other
-// pyspark applications.
+// Spark applications.
 scala> vc.sql("create sample of database_name.table_name").show(false)
 
 // Now Verdict automatically uses available samples for speeding up this query.
