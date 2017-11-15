@@ -15,7 +15,7 @@ Several multinational corporations are now testing Verdict on top of their own d
 
 ## Mailing list, Bug Reports, Feature Requests
 
-For feature requests, opinions, etc., it is recommended you to use the `verdict-user@umich.edu` mailing list. Anyone can join the mailing list at [this website](https://mcommunity.umich.edu/#group:Verdict%20Users). Some people found it to be more convenient to open issues in [this Github page](https://github.com/mozafari/verdict/issues). We are notified your feedbacks immediately via email.
+For feature requests, bug reports, etc., please open an issue at our [Github repository](https://github.com/mozafari/verdict/issues). For all other discussions or suggestions, please use our new [Verdict User Group](https://groups.google.com/forum/#!forum/verdict) created by Rajiv Abraham (thanks!). For all issues and discussions, we are notified via email.
 
 
 ## Contributors
