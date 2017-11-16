@@ -31,6 +31,7 @@ Verdict is developed and maintained primarily by the database group at the Unive
 | Xiaoran Xu      | University of Michigan, Ann Arbor |
 | Shahab Tajik    | Apple                             |
 | Wen He          | University of Michigan, Ann Arbor |
+| Idris Hanafi    | University of Michigan, Ann Arbor |
 
 
 ## Research discussions
