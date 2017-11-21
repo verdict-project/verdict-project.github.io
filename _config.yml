@@ -19,60 +19,60 @@ url: http://verdictdb.org/
 verdict_jdbc:
   cdh5.11.1:
     family: CDH
-    name: verdict-jdbc-cdh5.11.1-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.11.1-0.4.2.jar/download
+    name: verdict-jdbc-cdh5.11.1-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.11.1-0.4.3.jar/download
   cdh5.12.1:
     family: CDH
-    name: verdict-jdbc-cdh5.12.1-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.12.1-0.4.2.jar/download
+    name: verdict-jdbc-cdh5.12.1-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-cdh5.12.1-0.4.3.jar/download
   redshift41:
     family: Redshift
-    name: verdict-jdbc-redshift41-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-redshift41-0.4.2.jar/download
+    name: verdict-jdbc-redshift41-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-redshift41-0.4.3.jar/download
 verdict_shell:
   cdh5.11.1:
     family: CDH
-    name: verdict-cli-cdh5.11.1-0.4.2.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.11.1-0.4.2.zip/download
+    name: verdict-cli-cdh5.11.1-0.4.3.zip
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.11.1-0.4.3.zip/download
   cdh5.12.1:
     family: CDH
-    name: verdict-cli-cdh5.12.1-0.4.2.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.12.1-0.4.2.zip/download
+    name: verdict-cli-cdh5.12.1-0.4.3.zip
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-cdh5.12.1-0.4.3.zip/download
   redshift41:
     family: Redshift
-    name: verdict-cli-redshift41-0.4.2.zip
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-redshift41-0.4.2.zip/download
+    name: verdict-cli-redshift41-0.4.3.zip
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-redshift41-0.4.3.zip/download
 verdict_spark:
   cdh5.11.1:
     family: CDH
-    name: verdict-spark-lib-cdh5.11.1-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.11.1-0.4.2.jar/download
+    name: verdict-spark-lib-cdh5.11.1-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.11.1-0.4.3.jar/download
   cdh5.12.1:
     family: CDH
-    name: verdict-spark-lib-cdh5.12.1-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.12.1-0.4.2.jar/download
+    name: verdict-spark-lib-cdh5.12.1-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-cdh5.12.1-0.4.3.jar/download
   mapr-spark2.0.1:
     family: MapR
-    name: verdict-spark-lib-mapr-spark2.0.1-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.0.1-0.4.2.jar/download
+    name: verdict-spark-lib-mapr-spark2.0.1-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.0.1-0.4.3.jar/download
   mapr-spark2.1.0:
     family: MapR
-    name: verdict-spark-lib-mapr-spark2.1.0-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.1.0-0.4.2.jar/download
+    name: verdict-spark-lib-mapr-spark2.1.0-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-mapr-spark2.1.0-0.4.3.jar/download
   spark2_2.10:
     family: Official Version
-    name: verdict-spark-lib-spark2_2.10-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.10-0.4.2.jar/download
+    name: verdict-spark-lib-spark2_2.10-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.10-0.4.3.jar/download
   spark2_2.11:
     family: Official Version
-    name: verdict-spark-lib-spark2_2.11-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.11-0.4.2.jar/download
+    name: verdict-spark-lib-spark2_2.11-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark2_2.11-0.4.3.jar/download
   spark_2.10:
     family: Official Version
-    name: verdict-spark-lib-spark_2.10-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.10-0.4.2.jar/download
+    name: verdict-spark-lib-spark_2.10-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.10-0.4.3.jar/download
   spark_2.11:
     family: Official Version
-    name: verdict-spark-lib-spark_2.11-0.4.2.jar
-    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.11-0.4.2.jar/download
-version: 0.4.2
+    name: verdict-spark-lib-spark_2.11-0.4.3.jar
+    url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-spark_2.11-0.4.3.jar/download
+version: 0.4.3
