@@ -18,14 +18,14 @@ twitter_username: jekyllrb
 url: http://verdictdb.org/
 verdict_jdbc:
   family: JDBC
-  name: verdict-spark-lib-0.4.7.jar
-  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.7.jar/download
+  name: verdict-spark-lib-0.4.8.jar
+  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-jdbc-0.4.8.jar/download
 verdict_shell:
   family: JDBC - Command Line Interface
-  name: verdict-cli-0.4.7.jar
-  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.7.jar/download
+  name: verdict-cli-0.4.8.jar
+  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-cli-0.4.8.zip/download
 verdict_spark:
   family: Spark
-  name: verdict-spark-lib-0.4.7.jar
-  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.7.jar/download
-version: 0.4.7
+  name: verdict-spark-lib-0.4.8.jar
+  url: https://sourceforge.net/projects/verdict/files/0.4/verdict-spark-lib-0.4.8.jar/download
+version: 0.4.8
