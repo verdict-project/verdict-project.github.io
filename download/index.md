@@ -8,7 +8,7 @@ title: Download and Installation
 
 Download relevant jar or archive files depending on your use cases. You can also build Verdict from our source code using [Apache Maven](https://maven.apache.org/).
 
-Verdict does not require any separate steps for installation. Simply placing those downloaded files in any of your local file system is enough for starting to use Verdict.
+Verdict does not require any separate steps for installation. Simply placing those downloaded files in any of your local file system is enough to use Verdict.
 
 All the jar files provided below are compiled using Oracle JDK 8.
 
@@ -17,28 +17,21 @@ All the jar files provided below are compiled using Oracle JDK 8.
 
 Download the below jar file and [include it in Spark applications](https://spark.apache.org/docs/latest/submitting-applications.html#advanced-dependency-management) (using `--jars` option). Our [Quick Start Guide]({{ site.baseurl }}/documentation/quick_start/) provides more instructions.
 
-{% for item in site.verdict_spark %}
-    {% assign platform = item[0] %}
-    {% assign name_url = item[1] %}
-    {% assign name = name_url['name'] %}
-    {% assign url = name_url['url'] %}
-**Download for {{ name_url['family'] }} - {{ platform }}**: [{{ name_url['name'] }}]({{ name_url['url'] }})
-{% endfor %}
-
-Note that `2.10` and `2.11` suffixed to the official Spark versions are the Scala versions.
+{% assign platform = site.verdict_spark['family'] %}
+{% assign name = site.verdict_spark['name'] %}
+{% assign url = site.verdict_spark['url'] %}
+**Download {{ platform }}**: [{{ name }}]({{ url }})
 
 
 ## Hive, Impala, Redshift: Command-line Interface
 
 Download the below zip archive, extract it, and start an interactive command-line interface as described in [this document]({{ site.baseurl }}/documentation/quick_start/#on-apache-impala-apache-hive-amazon-redshift). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala.
 
-{% for item in site.verdict_shell %}
-    {% assign platform = item[0] %}
-    {% assign name_url = item[1] %}
-    {% assign name = name_url['name'] %}
-    {% assign url = name_url['url'] %}
-**Download for {{ name_url['family'] }} - {{ platform }}**: [{{ name_url['name'] }}]({{ name_url['url'] }})
-{% endfor %}
+{% assign platform = site.verdict_shell['family'] %}
+{% assign name = site.verdict_shell['name'] %}
+{% assign url = site.verdict_shell['url'] %}
+**Download {{ platform }}**: [{{ name }}]({{ url }})
+
 
 <!-- **Download for %**: [{{ site.verdict_command_line_zip_name }}]({{ site.verdict_command_line_zip_url }}) -->
 
@@ -49,11 +42,11 @@ Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drive
 
 You can load below jar file in your Java applications in [a standard way](https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm). Simply use instead our JDBC driver class name as described [here](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala.
 
-{% for item in site.verdict_jdbc %}
-    {% assign platform = item[0] %}
-    {% assign name_url = item[1] %}
-**Download for {{ name_url['family'] }} - {{ platform }}**: [{{ name_url['name'] }}]({{ name_url['url'] }})
-{% endfor %}
+{% assign platform = site.verdict_jdbc['family'] %}
+{% assign name = site.verdict_jdbc['name'] %}
+{% assign url = site.verdict_jdbc['url'] %}
+**Download {{ platform }}**: [{{ name }}]({{ url }})
+
 
 Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drivers for [Apache Hive](https://www.cloudera.com/downloads/connectors/hive/jdbc/2-5-4.html), [Apache Impala](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-5-41.html), [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver), etc., without any modifications. The sole purpose of including those JDBC drivers in the above jar file is for the convenience of the existing users of those systems, and Verdict does not use any part of those JDBC drivers in its codebase.
 
