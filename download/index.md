@@ -25,7 +25,7 @@ Download the below jar file and [include it in Spark applications](https://spark
 
 ## Hive, Impala, Redshift: Command-line Interface
 
-Download the below zip archive, extract it, and start an interactive command-line interface as described in [this document]({{ site.baseurl }}/documentation/quick_start/#on-apache-impala-apache-hive-amazon-redshift). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala.
+Download the below zip archive, extract it, and start an interactive command-line interface as described in [this document]({{ site.baseurl }}/documentation/quick_start/#on-apache-impala-apache-hive-amazon-redshift). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala. **Important:** You must place JDBC jars files for your database in the `jdbc_jars` directory.
 
 {% assign platform = site.verdict_shell['family'] %}
 {% assign name = site.verdict_shell['name'] %}
@@ -52,31 +52,19 @@ Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drive
 
 ## Build from source
 
-Clone our Github repository or download an archive of it latest source code. Verdict is officially supported and tested for Oracle JDK 7 and above; however, we have not experienced any issues in Open JDK 7 and above as well. 
+Clone our Github repository or download an archive of it latest source code. Verdict is officially supported and tested for Oracle JDK 7 and above.
 
 1. **Download**: [Github snapshot](https://github.com/mozafari/verdict/archive/master.zip)
 1. **Visit**: [Github repository](https://github.com/mozafari/verdict)
 
-Compile the source code using either of the following commands depending on your platform:
-{% assign platforms = "" %}
-{% for item in site.verdict_spark %}
-    {% assign platforms = platforms | append: "," | append: item[0] %}
-{% endfor %}
-{% for item in site.verdict_jdbc %}
-    {% assign platforms = platforms | append: "," | append: item[0] %}
-{% endfor %}
-{% for item in site.verdict_shell %}
-    {% assign platforms = platforms | append: "," | append: item[0] %}
-{% endfor %}
-{% assign platforms = platforms | remove_first: "," | split: "," | uniq %}
-{% for p in platforms %}
-1. {{ p }}: `mvn package -P{{ p }}`
+Compile the source code using the following command:
+`mvn package`
 
-{% endfor %}
 
 The above commands will generate up to three `jar` files under the `jars` directory in the following patterns:
-1. verdict-spark-lib-(platform)-(version).jar
-1. verdict-jdbc-(platform)-(version).jar
+
+1. verdict-spark-lib-(version).jar
+1. verdict-jdbc-(version).jar
 1. verdict-shell-(version).jar
 
 The first jar file is used for Spark. The second jar file is Verdict's JDBC driver. The third jar file is used (in conjunction with the second jar file) for Verdict's command line interface.
