@@ -31,7 +31,7 @@ Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdic
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
-$ spark-shell --jars verdict-spark-lib-(version).jar
+$ spark-shell --jars verdictdb-(version).jar
 ```
 
 After spark-shell starts, import and use Verdict as follows.
@@ -60,7 +60,7 @@ The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class
 You can start `spark-shell` with Verdict as follows.
 
 ```bash
-$ spark-shell --jars verdict-spark-lib-(version).jar
+$ spark-shell --jars verdictdb-(version).jar
 ```
 
 After spark-shell starts, import and use Verdict as follows.
@@ -91,7 +91,7 @@ You can start `pyspark` shell with Verdict as follows.
 ```bash
 $ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
 
-$ pyspark --driver-class-path verdict-spark-lib-(version).jar
+$ pyspark --driver-class-path verdictdb-(version).jar
 ```
 
 **Limitation**: Note that, for the `--driver-class-path` option to work, the jar file (i.e., `{{ site.verdict_core_jar_name }}`) must be placed in the Spark's driver node. `--jars` option can be used for Spark 2.0 or later.
