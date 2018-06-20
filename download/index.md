@@ -13,32 +13,7 @@ Verdict does not require any separate steps for installation. Simply placing tho
 All the jar files provided below are compiled using Oracle JDK 8.
 
 
-## Apache Spark
-
-Download the below jar file and [include it in Spark applications](https://spark.apache.org/docs/latest/submitting-applications.html#advanced-dependency-management) (using `--jars` option). Our [Quick Start Guide]({{ site.baseurl }}/documentation/quick_start/) provides more instructions.
-
-{% assign platform = site.verdict_spark['family'] %}
-{% assign name = site.verdict_spark['name'] %}
-{% assign url = site.verdict_spark['url'] %}
-**Download {{ platform }}**: [{{ name }}]({{ url }})
-
-
-## Hive, Impala, Redshift: Command-line Interface
-
-Download the below zip archive, extract it, and start an interactive command-line interface as described in [this document]({{ site.baseurl }}/documentation/quick_start/#on-apache-impala-apache-hive-amazon-redshift). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala. **Important:** You must place JDBC jars files for your database in the `jdbc_jars` directory.
-
-{% assign platform = site.verdict_shell['family'] %}
-{% assign name = site.verdict_shell['name'] %}
-{% assign url = site.verdict_shell['url'] %}
-**Download {{ platform }}**: [{{ name }}]({{ url }})
-
-
-<!-- **Download for %**: [{{ site.verdict_command_line_zip_name }}]({{ site.verdict_command_line_zip_url }}) -->
-
-Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drivers for [Apache Hive](https://www.cloudera.com/downloads/connectors/hive/jdbc/2-5-4.html), [Apache Impala](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-5-41.html), [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver), etc., without any modifications. The sole purpose of including those JDBC drivers in the above jar file is for the convenience of the existing users of those systems, and Verdict does not use any part of those JDBC drivers in its codebase.
-
-
-## Hive, Impala, Redshift: JDBC Driver
+## Main Package
 
 You can load below jar file in your Java applications in [a standard way](https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm). Simply use instead our JDBC driver class name as described [here](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala.
 
@@ -47,8 +22,20 @@ You can load below jar file in your Java applications in [a standard way](https:
 {% assign url = site.verdict_jdbc['url'] %}
 **Download {{ platform }}**: [{{ name }}]({{ url }})
 
+Note that the above jar file does **NOT** contain third-party JDBC drivers, i.e., JDBC drivers for [Apache Hive](https://www.cloudera.com/downloads/connectors/hive/jdbc/2-5-4.html), [Apache Impala](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-5-41.html), [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver),
+[Postgresql](https://jdbc.postgresql.org/download.html),
+etc. 
 
-Note that the above jar file contains third-party JDBC drivers, i.e., JDBC drivers for [Apache Hive](https://www.cloudera.com/downloads/connectors/hive/jdbc/2-5-4.html), [Apache Impala](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-5-41.html), [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver), etc., without any modifications. The sole purpose of including those JDBC drivers in the above jar file is for the convenience of the existing users of those systems, and Verdict does not use any part of those JDBC drivers in its codebase.
+**Important:** You must place JDBC jars files for your database in the `jdbc_jars` directory.
+
+## Command-line Interface
+
+Download the main package and below jar file, and start an interactive command-line interface as described in [this document]({{ site.baseurl }}/documentation/quick_start/#on-apache-impala-apache-hive-amazon-redshift). [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is Cloudera's distribution including Hive and Impala. 
+
+{% assign platform = site.verdict_shell['family'] %}
+{% assign name = site.verdict_shell['name'] %}
+{% assign url = site.verdict_shell['url'] %}
+**Download {{ platform }}**: [{{ name }}]({{ url }})
 
 ## Build from source
 
