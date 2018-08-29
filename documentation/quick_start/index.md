@@ -6,9 +6,8 @@ title: Quickstart Guide
 * TOC
 {:toc}
 
-# Quickstart Guide
 
-We will install VerdictDB, create a connection, and issue a simple query to VerdictDB. In this Quickstart Guide, we will use an MySQL database for VerdictDB's backend database. See [How to Connect](/getting_started/connection/) for the examples of connecting to other databases.
+We will install VerdictDB, create a connection, and issue a simple query to VerdictDB. In this Quickstart Guide, we will use an MySQL database for VerdictDB's backend database. See [How to Connect](http://docs.verdictdb.org/getting_started/connection/) for the examples of connecting to other databases.
 
 
 ## Install
