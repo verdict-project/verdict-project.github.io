@@ -1,5 +1,5 @@
 - title: "EXAMPLE"
-  active: true
+  active: false
   url: "/documentation/example"
 
 - title: "DOWNLOAD"
@@ -7,7 +7,7 @@
   url: "/download"
 
 - title: "QUICK START"
-  active: false
+  active: true
   url: "/documentation/quick_start"
 
 - title: "DOCUMENTATION"
