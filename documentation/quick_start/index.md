@@ -1,217 +1,139 @@
 ---
 layout: post
-title: Quick Start Guide
+title: Quickstart Guide
 ---
 
 * TOC
 {:toc}
 
-Verdict can run on top of [Apache Hive](https://hive.apache.org/), [Apache Impala](https://impala.incubator.apache.org/), [Apache Spark](https://spark.apache.org/), and [Amazon Redshift](https://aws.amazon.com/redshift) We are adding drivers for other database systems, such as Facebook Presto, Google BigQuery, Google Dataproc, etc.
+# Quickstart Guide
 
-Using Verdict is easy. Following this guide, you can finish setup in five minutes if you have any of those supported systems ready. Verdict takes a slightly different approach depending on the database system it works with. Once connected, however, you can issue the same SQL queries.
-
-
-## Download and Install
-
-See [this page]({{ site.baseurl }}/download/) to download jar or zip archives relevant to your data analytics platforms.
+We will install VerdictDB, create a connection, and issue a simple query to VerdictDB. In this Quickstart Guide, we will use an MySQL database for VerdictDB's backend database. See [How to Connect](/getting_started/connection/) for the examples of connecting to other databases.
 
 
+## Install
 
-## Verdict on Apache Spark
-
-Verdict works with Spark by creating Spark's HiveContext internally. In this way, Verdict can load persisted tables through Hive Metastore.
-
-We show how to use Verdict in `spark-shell` and `pyspark`. Using Verdict in a Spark application written either in Scala or Python is the same.
-
-Due to the seamless integration of Verdict on top of Spark (and PySpark), Verdict can be used within [Apache Zeppelin](https://zeppelin.apache.org/) notebooks and Python [Jupyter](http://jupyter.org/) notebooks. Our [documentation](http://verdict-doc.readthedocs.io/en/latest/using.html#in-apache-zeppelin) provides more information.
-
-
-### Spark 1.6
-
-You can start `spark-shell` with Verdict as follows.
-
-```bash
-$ spark-shell --jars verdict-spark-lib-(version).jar
+Create a [Maven](https://maven.apache.org/) project and
+place the following dependency in the `<dependencies>` of your pom.xml.
+```pom
+<dependency>
+    <groupId>org.verdictdb</groupId>
+    <artifactId>verdictdb-core</artifactId>
+    <version>0.5.4</version>
+</dependency>
 ```
 
-After spark-shell starts, import and use Verdict as follows.
-
-```scala
-import edu.umich.verdict.VerdictSparkHiveContext
-
-scala> val vc = new VerdictSparkHiveContext(sc)   // sc: SparkContext instance
-
-scala> vc.sql("show databases").show(false)       // Simply displays the databases (or often called schemas)
-
-// Creates samples for the table. This step needs to be done only once for the table.
-// The created tables are automatically persisted through HiveContext and can be used in the other
-// Spark applications.
-scala> vc.sql("create sample of database_name.table_name").show(false)
-
-// Now Verdict automatically uses available samples for speeding up this query.
-scala> vc.sql("select count(*) from database_name.table_name").show(false)
+To use MySQL, add the following entry as well:
+```pom
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.46</version>
+</dependency>
 ```
 
-The return value of `VerdictSparkHiveContext#sql()` is a Spark's DataFrame class; thus, any methods that work on Spark's DataFrame work on Verdict's answer seamlessly.
 
+## Insert Data
 
-### Spark 2.0 or later
+We will first generate small data to play with.
 
-You can start `spark-shell` with Verdict as follows.
+```java
+// Suppose username is root and password is rootpassword.
+Connection mysqlConn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "rootpassword");
+Statement stmt = mysqlConn.createStatement();
+stmt.execute("create schema myschema");
+stmt.execute("create table myschema.sales (" +
+             "  product   varchar(100)," +
+             "  price     double)");
 
-```bash
-$ spark-shell --jars verdict-spark-lib-(version).jar
+// insert 1000 rows
+List<String> productList = Arrays.asList("milk", "egg", "juice");
+for (int i = 0; i < 1000; i++) {
+  int randInt = ThreadLocalRandom.current().nextInt(0, 3);
+  String product = productList.get(randInt);
+  double price = (randInt+2) * 10 + ThreadLocalRandom.current().nextInt(0, 10);
+  stmt.execute(String.format(
+      "INSERT INTO myschema.sales (product, price) VALUES('%s', %.0f)",
+      product, price));
+}
 ```
 
-After spark-shell starts, import and use Verdict as follows.
 
-```scala
-import edu.umich.verdict.VerdictSpark2Context
 
-scala> val vc = new VerdictSpark2Context(sc)      // sc: SparkContext instance
+## Test VerdictDB
 
-scala> vc.sql("show databases").show(false)       // Simply displays the databases (or often called schemas)
+Create a JDBC connection to VerdictDB.
 
-// Creates samples for the table. This step needs to be done only once for the table.
-// The created tables are automatically persisted and can be used in the other
-// Spark applications.
-scala> vc.sql("create sample of database_name.table_name").show(false)
-
-// Now Verdict automatically uses available samples for speeding up this query.
-scala> vc.sql("select count(*) from database_name.table_name").show(false)
+```java
+Connection verdict = DriverManager.getConnection("jdbc:verdict:mysql://localhost", "root", "rootpassword");
+Statement vstmt = verdict.createStatement();
 ```
 
-The return value of `VerdictSpar2Context#sql()` is a Spark's Dataset class; thus, any methods that work on Spark's Dataset work on Verdict's answer seamlessly.
+Create a special table called a "scramble", which is the replica of the original table with extra information VerdictDB uses for speeding up query processing.
 
-
-### PySpark 1.6
-
-You can start `pyspark` shell with Verdict as follows.
-
-```bash
-$ export PYTHONPATH=$(pwd)/python:$PYTHONPATH
-
-$ pyspark --driver-class-path verdict-spark-lib-(version).jar
+```java
+vstmt.execute("create scramble myschema.sales_scrambled from myschema.sales");
 ```
 
-**Limitation**: Note that, for the `--driver-class-path` option to work, the jar file (i.e., `{{ site.verdict_core_jar_name }}`) must be placed in the Spark's driver node. `--jars` option can be used for Spark 2.0 or later.
+Run just a regular query to the original table.
 
-After pyspark shell starts, import and use Verdict as follows.
-
-```python
-from pyverdict import VerdictHiveContext
-
-vc = VerdictHiveContext(sc)        # sc: SparkContext instance
-
-vc.sql("show databases").show()    # Simply displays the databases (or often called schemas)
-
-# Creates samples for the table. This step needs to be done only once for the table.
-# The created tables are automatically persisted through HiveContext and can be used in the other
-# pyspark applications.
-vc.sql("create sample of database_name.table_name").show()
-
-# Now Verdict automatically uses available samples for speeding up this query.
-vc.sql("select count(*) from database_name.table_name").show()
+```java
+ResultSet rs = vstmt.executeQuery(
+    "select product, avg(price) "+
+    "from myschema.sales_scrambled " +
+    "group by product " +
+    "order by product");
 ```
 
-The return value of `VerdictHiveContext#sql()` is a pyspark's DataFrame class; thus, any methods that work on pyspark's DataFrame work on Verdict's answer seamlessly.
+Internally, VerdictDB rewrites the above query to use the scramble. It is equivalent to explicitly specifying the scramble in the from clause of the above query.
 
 
-### PySpark 2.0 or later
-
-This will be added shortly.
+## Complete Example Java File
 
 
-## Impala, Hive, Redshift
+```java
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-We will use our command line interface (which is called `verdict-shell`) for connecting to those databases. You can also programmatically connect to Verdict through its JDBC driver (see [this page](http://verdict-doc.readthedocs.io/en/latest/using.html#jdbc-in-java-python-applications)).
-
-### Notes
-
-`verdict-shell` relies on the JDBC drivers provided by individual database vendors; thus, if your database is not compatible with the drivers packaged in {{ site.verdict_command_line_zip_name }}, `verdict-shell` will not be able to make a connection to your database. In this case, please contact our team for support. We will add a right set of JDBC drivers promptly.
+public class FirstVerdictDBExample {
 
 
-### Apache Impala
+  public static void main(String args[]) throws SQLException {
+    // Suppose username is root and password is rootpassword.
+    Connection mysqlConn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "rootpassword");
+    Statement stmt = mysqlConn.createStatement();
+    stmt.execute("create schema myschema");
+    stmt.execute("create table myschema.sales (" +
+                 "  product   varchar(100)," +
+                 "  price     double)");
 
-Type the following command in terminal to launch `verdict-shell` that connects to Impala.
+    // insert 1000 rows
+    List<String> productList = Arrays.asList("milk", "egg", "juice");
+    for (int i = 0; i < 1000; i++) {
+      int randInt = ThreadLocalRandom.current().nextInt(0, 3)
+      String product = productList.get(randInt);
+      double price = (randInt+2) * 10 + ThreadLocalRandom.current().nextInt(0, 10);
+      stmt.execute(String.format(
+          "INSERT INTO myschema.sales (product, price) VALUES('%s', %.0f)",
+          product, price));
+    }
 
-```bash
-$ bin/verdict-shell -h "impala://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
+    Connection verdict = DriverManager.getConnection("jdbc:verdict:mysql://localhost", "root", "rootpassword");
+    Statement vstmt = verdict.createStatement();
+
+    // Use CREATE SCRAMBLE syntax to create scrambled tables.
+    vstmt.execute("create scramble myschema.sales_scrambled from myschema.sales");
+
+    ResultSet rs = vstmt.executeQuery(
+        "select product, avg(price) "+
+        "from myschema.sales_scrambled " +
+        "group by product " +
+        "order by product");
+
+    // Do something after getting the results.
+  }
+}
 ```
-
-Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
-
-Verdict also supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
-
-After `verdict-shell` launches, you can issue regular SQL queries as follows.
-
-```
-verdict:impala> show databases;
-
-// Creates samples for the table. This step needs to be done only once for the table.
-verdict:impala> create sample of database_name.table_name;
-
-verdict:impala> select count(*) from database_name.table_name;
-
-verdict:impala> !quit
-```
-
-### Apache Hive
-
-Type the following command in terminal to launch `verdict-shell` that connects to Hive.
-
-```bash
-$ bin/verdict-shell -h "hive2://hostname:port/schema;key1=value1;key2=value2;..." -u username -p password
-```
-
-Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
-
-Verdict supports the Kerberos connection. For this, add `principal=user/host@domain` as one of those key-values pairs.
-
-After `verdict-shell` launches, you can issue regular SQL queries as follows.
-
-```
-verdict:Apache Hive> show databases;
-
-// Creates samples for the table. This step needs to be done only once for the table.
-verdict:Apache Hive> create sample of database_name.table_name;
-
-verdict:Apache Hive> select count(*) from database_name.table_name;
-
-verdict:Apache Hive> !quit
-```
-
-### Amazon Redshift
-
-Type the following command in terminal to launch `verdict-shell` that connects to Amazon Redshift.
-
-```bash
-$ bin/verdict-shell -h "redshift://endpoint:port/database;key1=value1;key2=value2;..." -u username -p password
-```
-
-Note that parameters are delimited using semicolons (`;`). The connection string is quoted since the semicolons have special meaning in bash. The user name and password can be passed in the connection string as parameters, too.
-
-After `verdict-shell` launches, you can issue regular SQL queries as follows.
-
-```
-// Displays the schemas in the database to which you are connected
-verdict:PostgreSQL> show schemas;
-
-// Creates samples for the table. This step needs to be done only once for the table.
-verdict:PostgreSQL> create sample of schema_name.table_name;
-
-verdict:PostgreSQL> select count(*) from schema_name.table_name;
-
-verdict:PostgreSQL> !quit
-```
-
-The [search path](http://docs.aws.amazon.com/redshift/latest/dg/r_search_path.html) can be set by `use schema_name;` statement. Currently, only a single schema name can be set for the search path using the `use` statement.
-
-
-## What's Next
-
-See what types of queries are supported by Verdict in [**this page**](http://verdictdb.org), and enjoy the speedup provided Verdict for those queries.
-
-Learn in [**this page**]() how to quickly visualize your query answers using Verdict in [Apache Zeppelin](https://zeppelin.apache.org/) or [Jupyter](http://jupyter.org/).
-
-If you have use cases that are not supported by Verdict, please contact us at `verdict-user@umich.edu`, or create an issue in our Github repository. We will answer your questions or requests shortly (at most in a few days).
