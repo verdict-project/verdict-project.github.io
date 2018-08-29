@@ -2,7 +2,7 @@
   active: false
   url: "/documentation/example"
 
-- title: "DOWNLOAD"
+- title: "DOWNLOAD/INSTALL"
   active: true
   url: "/download"
 

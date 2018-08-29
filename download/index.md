@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Download and Install
+title: Download and Installation
 ---
 
 * TOC
