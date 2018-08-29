@@ -12,7 +12,7 @@
 
 - title: "DOCUMENTATION"
   active: true
-  url: "http://verdict-doc.readthedocs.io/"
+  url: "http://docs.verdictdb.org/"
 
 - title: "RESEARCH"
   active: false
