@@ -7,7 +7,7 @@
   url: "/download"
 
 - title: "QUICK START"
-  active: true
+  active: false
   url: "/documentation/quick_start"
 
 - title: "DOCUMENTATION"
