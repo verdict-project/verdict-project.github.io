@@ -120,21 +120,21 @@
       padding-bottom: 2px;
     }
 
-    .navbar-brand-icon {
-        margin-top: 0px;
-        padding-top: 0px;
-        padding-left: 0px;
-        padding-right: 5px;
-        padding-bottom: 10px;
-        display: inline;
-        color: white;
-        font-family: 'Comfortaa', cursive;
-        font-size: 20pt;
-
-        @include media-query($on-palm) {
-            display: inline;
-        }
-    }
+    // .navbar-brand-icon {
+    //     margin-top: 0px;
+    //     padding-top: 0px;
+    //     padding-left: 0px;
+    //     padding-right: 5px;
+    //     padding-bottom: 10px;
+    //     display: inline;
+    //     color: white;
+    //     font-family: 'Comfortaa', cursive;
+    //     font-size: 20pt;
+    //
+    //     @include media-query($on-palm) {
+    //         display: inline;
+    //     }
+    // }
 
     .navbar-brand {
         margin-top: 0px;
