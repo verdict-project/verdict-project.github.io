@@ -15,7 +15,7 @@ Several multinational corporations are now testing Verdict on top of their own d
 
 ## Mailing list, Bug Reports, Feature Requests
 
-For feature requests, bug reports, etc., please open an issue at our [Github repository](https://github.com/mozafari/verdict/issues). For all other discussions or suggestions, please use our new [Verdict User Group](https://groups.google.com/forum/#!forum/verdict) created by Rajiv Abraham (thanks!). For all issues and discussions, we are notified via email.
+For feature requests, bug reports, etc., please open an issue at our [Github repository](https://github.com/mozafari/verdict/issues). For all other discussions or suggestions, please use our [Verdict Gitter chat](https://gitter.im/verdictdb/chat). For all issues and discussions, we are notified via email.
 
 
 ## Contributors
@@ -32,6 +32,8 @@ Verdict is developed and maintained primarily by the database group at the Unive
 | Shahab Tajik    | Apple                             |
 | Wen He          | University of Michigan, Ann Arbor |
 | Idris Hanafi    | University of Michigan, Ann Arbor |
+| Dong Young Yoon | University of Michigan, Ann Arbor |
+| Shucheng Zong   | University of Michigan, Ann Arbor |
 
 
 ## Research discussions
