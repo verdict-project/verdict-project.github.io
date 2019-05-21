@@ -6,133 +6,51 @@ title: Quickstart Guide
 * TOC
 {:toc}
 
+We will install VerdictDB's Python interface, ingest data (i.e., create another *special* copy of your existing table), and issue a simple query to VerdictDB. In this Quickstart Guide, we will use MySQL for VerdictDB's backend database.
 
-We will install VerdictDB, create a connection, and issue a simple query to VerdictDB. In this Quickstart Guide, we will use an MySQL database for VerdictDB's backend database. See [How to Connect](http://docs.verdictdb.org/getting_started/connection/) for the examples of connecting to other databases.
+<!-- We will install VerdictDB, create a connection, and issue a simple query to VerdictDB. In this Quickstart Guide, we will use an MySQL database for VerdictDB's backend database. See [How to Connect](http://docs.verdictdb.org/getting_started/connection/) for the examples of connecting to other databases. -->
 
 
 ## Install
 
-Create a [Maven](https://maven.apache.org/) project and
-place the following dependency in the `<dependencies>` of your pom.xml.
-```pom
-<dependency>
-    <groupId>org.verdictdb</groupId>
-    <artifactId>verdictdb-core</artifactId>
-    <version>0.5.4</version>
-</dependency>
+For this quickstart guide, we will use `pyverdict`, a Python interface to VerdictDB's core.
+`pyverdict` can be installed by typing
+
+```python
+pip install pyverdict
+# use the following line for upgrading:
+# pip install pyverdict --upgrade
 ```
 
-To use MySQL, add the following entry as well:
-```pom
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.46</version>
-</dependency>
-```
 
 
 ## Insert Data
 
-We will first generate small data to play with.
+Suppose a table `myschema.sales` contains the data you want to analyze.
+After making a connection to VerdictDB, we will issue a query to create a *scramble* of the table,
+i.e., its replica with special extra information.
+VerdictDB uses this scramble for speeding up query processing.
 
-```java
-// Suppose username is root and password is rootpassword.
-Connection mysqlConn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "rootpassword");
-Statement stmt = mysqlConn.createStatement();
-stmt.execute("create schema myschema");
-stmt.execute("create table myschema.sales (" +
-             "  product   varchar(100)," +
-             "  price     double)");
-
-// insert 1000 rows
-List<String> productList = Arrays.asList("milk", "egg", "juice");
-for (int i = 0; i < 1000; i++) {
-  int randInt = ThreadLocalRandom.current().nextInt(0, 3);
-  String product = productList.get(randInt);
-  double price = (randInt+2) * 10 + ThreadLocalRandom.current().nextInt(0, 10);
-  stmt.execute(String.format(
-      "INSERT INTO myschema.sales (product, price) VALUES('%s', %.0f)",
-      product, price));
-}
+```python
+verdict = pyverdict.mysql(
+    host='localhost',
+    user='root',
+    password='',
+    port=3306
+)
+verdict.sql('create scramble myschema.sales_scrambled from myschema.sales')
 ```
 
 
 
-## Test VerdictDB
+## Run Queries
 
-Create a JDBC connection to VerdictDB.
+Run a regular query to the scrambled table to obtain approximate results. The query result is stored in a pandas DataFrame.
 
-```java
-Connection verdict = DriverManager.getConnection("jdbc:verdict:mysql://localhost", "root", "rootpassword");
-Statement vstmt = verdict.createStatement();
-```
-
-Create a special table called a "scramble", which is the replica of the original table with extra information VerdictDB uses for speeding up query processing.
-
-```java
-vstmt.execute("create scramble myschema.sales_scrambled from myschema.sales");
-```
-
-Run just a regular query to the original table.
-
-```java
-ResultSet rs = vstmt.executeQuery(
-    "select product, avg(price) "+
+```python
+df = verdict.sql(
+    "select product, avg(price) " +
     "from myschema.sales_scrambled " +
     "group by product " +
-    "order by product");
-```
-
-Internally, VerdictDB rewrites the above query to use the scramble. It is equivalent to explicitly specifying the scramble in the from clause of the above query.
-
-
-## Complete Example Java File
-
-
-```java
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-public class FirstVerdictDBExample {
-
-
-  public static void main(String args[]) throws SQLException {
-    // Suppose username is root and password is rootpassword.
-    Connection mysqlConn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "rootpassword");
-    Statement stmt = mysqlConn.createStatement();
-    stmt.execute("create schema myschema");
-    stmt.execute("create table myschema.sales (" +
-                 "  product   varchar(100)," +
-                 "  price     double)");
-
-    // insert 1000 rows
-    List<String> productList = Arrays.asList("milk", "egg", "juice");
-    for (int i = 0; i < 1000; i++) {
-      int randInt = ThreadLocalRandom.current().nextInt(0, 3)
-      String product = productList.get(randInt);
-      double price = (randInt+2) * 10 + ThreadLocalRandom.current().nextInt(0, 10);
-      stmt.execute(String.format(
-          "INSERT INTO myschema.sales (product, price) VALUES('%s', %.0f)",
-          product, price));
-    }
-
-    Connection verdict = DriverManager.getConnection("jdbc:verdict:mysql://localhost", "root", "rootpassword");
-    Statement vstmt = verdict.createStatement();
-
-    // Use CREATE SCRAMBLE syntax to create scrambled tables.
-    vstmt.execute("create scramble myschema.sales_scrambled from myschema.sales");
-
-    ResultSet rs = vstmt.executeQuery(
-        "select product, avg(price) "+
-        "from myschema.sales_scrambled " +
-        "group by product " +
-        "order by product");
-
-    // Do something after getting the results.
-  }
-}
+    "order by product")
 ```
