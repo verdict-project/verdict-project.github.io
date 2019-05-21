@@ -18,6 +18,7 @@ As a research group at a university, we are committed to staying as an open-sour
 For feature requests, bug reports, etc., please open an issue at our [Github page](https://github.com/mozafari/verdictdb/issues). For all other discussions or suggestions, please use our [Gitter page](https://gitter.im/verdictdb/chat). For all issues and discussions, we are notified via email.
 
 
+
 ## Contributors
 
 VerdictDB is developed and maintained primarily by the database group at the University of Michigan, Ann Arbor. However, anyone is welcome to join and contribute to this project. You can simply fork [our Github repository](https://github.com/mozafari/verdictdb), make any changes you want, and send a pull request. We will merge your changes after a review. Thus far, the following people have contributed to this project.
@@ -32,8 +33,8 @@ VerdictDB is developed and maintained primarily by the database group at the Uni
 | Shahab Tajik    | Apple                             |
 | Wen He          | University of Michigan, Ann Arbor |
 | Idris Hanafi    | University of Michigan, Ann Arbor |
-| Sucheng Zhong   | University of Michigan, Ann Arbor |
 | Dong Young Yoon | University of Michigan, Ann Arbor |
+| Shucheng Zong   | University of Michigan, Ann Arbor |
 | Tim Shen        | University of Michigan, Ann Arbor |
 | Mike Carter     | Locally.io                        |
 
