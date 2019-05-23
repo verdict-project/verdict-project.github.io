@@ -3,7 +3,7 @@
   url: "/documentation/example"
 
 - title: "DOWNLOAD/INSTALL"
-  active: true
+  active: false
   url: "/download"
 
 - title: "QUICK START"
@@ -13,6 +13,10 @@
 - title: "DOCUMENTATION"
   active: true
   url: "http://docs.verdictdb.org/"
+
+- title: "USERS"
+  active: true
+  url: "/documentation/users"
 
 - title: "RESEARCH"
   active: false
