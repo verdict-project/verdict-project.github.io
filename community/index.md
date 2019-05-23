@@ -36,7 +36,7 @@ VerdictDB is developed and maintained primarily by the database group at the Uni
 | Dong Young Yoon | University of Michigan, Ann Arbor |
 | Shucheng Zong   | University of Michigan, Ann Arbor |
 | Tim Shen        | University of Michigan, Ann Arbor |
-| Mike Carter     | Locally.io                        |
+| Mike Carter     | LOCALLY.io                        |
 
 
 ## Research discussions
