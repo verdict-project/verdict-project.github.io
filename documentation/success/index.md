@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Users
+title: Success Stories
 ---
 
 Since VerdictDB is an open-sourced project hosted on GitHub, we are unable to know exactly who or what companies are actively using.

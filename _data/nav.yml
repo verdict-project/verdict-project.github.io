@@ -14,9 +14,9 @@
   active: true
   url: "http://docs.verdictdb.org/"
 
-- title: "USERS"
+- title: "SUCCESS STORIES"
   active: true
-  url: "/documentation/users"
+  url: "/documentation/success"
 
 - title: "RESEARCH"
   active: false
