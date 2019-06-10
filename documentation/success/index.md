@@ -40,7 +40,7 @@ However, we have interacted heavily with the following companies to help them de
 		<div class="col-md-8 col-sm-8 col-xs-12">
 			 <a href="https://locally.io/">LOCALLY</a>
 			 is a leading company in location data intelligence and real-time consumer engagement.
-			 LOCALLY was interested in building a web-based platform where its customers can
+			 LOCALLY is interested in building/offering a web-based platform where its customers can
 			 interact (or play) with its massive amount of location data capturing people's
 			 mobile activities.
 			 In building such a web platform, the essential part is achieving real-time responses
