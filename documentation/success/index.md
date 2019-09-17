@@ -3,8 +3,7 @@ layout: post
 title: Success Stories
 ---
 
-Since VerdictDB is an open-sourced project hosted on GitHub, we are unable to know exactly who or what companies have tried or  actively using.
-However, we have interacted heavily with the following companies to help them deploy VerdictDB in their production environments.
+These are only some of the companies who have successfully used VerdictDB. Contact us if you would like to share your success story with VerdictDB: info@verdictdb.org
 
 <div style="margin-top: 20px;">
 	<div class="row">
