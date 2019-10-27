@@ -7,12 +7,12 @@
   url: "/download"
 
 - title: "QUICK START"
-  active: true
+  active: false
   url: "/documentation/quick_start"
 
 - title: "DOCUMENTATION"
   active: true
-  url: "http://docs.verdictdb.org/"
+  url: "https://verdict.readthedocs.org/"
 
 - title: "SUCCESS STORIES"
   active: true
